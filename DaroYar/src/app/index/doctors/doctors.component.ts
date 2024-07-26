@@ -14,7 +14,7 @@ export class DoctorsComponent {
   panelService=inject(PanelService)
   status:boolean=false
     constructor(){
-    this.listdrug()
+    this.getDoctor()
     if (this.doctorList.length==0) {
       this.status=true
     }
@@ -25,10 +25,15 @@ export class DoctorsComponent {
   //{id:2,firstname:'علی',lastname:'شش پری',city:'تهران',address:'تهران - تهران، خیابان شریعتی، بالاتر از میرداماد، کوچه فلسفی، پلاک 5، ساختمان پرشین، طبقه 5 ( پایین تر از ایستگاه مترو دکتر شریعتی)',hospital:'پاستور',gender:'مرد',image_url:'https://statics.doctoreto.com/preset:sharp/resize:fill:180:180:0/gravity:sm/plain/s3://drto/avatar/doctor/2021/11/NmyZYRf2dK3rtj8UAk2ZA7EhxUM9QwBB87YKYJky.jpg'},{id:2,firstname:'علی',lastname:'شش پری',city:'تهران',address:'تهران - تهران، خیابان شریعتی، بالاتر از میرداماد، کوچه فلسفی، پلاک 5، ساختمان پرشین، طبقه 5 ( پایین تر از ایستگاه مترو دکتر شریعتی)',hospital:'پاستور',gender:'مرد',image_url:'https://statics.doctoreto.com/preset:sharp/resize:fill:180:180:0/gravity:sm/plain/s3://drto/avatar/doctor/2021/11/NmyZYRf2dK3rtj8UAk2ZA7EhxUM9QwBB87YKYJky.jpg'},{id:2,firstname:'علی',lastname:'شش پری',city:'تهران',address:'تهران - تهران، خیابان شریعتی، بالاتر از میرداماد، کوچه فلسفی، پلاک 5، ساختمان پرشین، طبقه 5 ( پایین تر از ایستگاه مترو دکتر شریعتی)',hospital:'پاستور',gender:'مرد',image_url:'https://statics.doctoreto.com/preset:sharp/resize:fill:180:180:0/gravity:sm/plain/s3://drto/avatar/doctor/2021/11/NmyZYRf2dK3rtj8UAk2ZA7EhxUM9QwBB87YKYJky.jpg'}
   doctorList:any=[]
   getDoctor(event?: any) {
-
-        this.panelService.listDoctor().subscribe({
+    let data={
+      "expertise":event.target.value
+    }
+        this.panelService.listDoctor(data).subscribe({
           next: ((data: any) => {
-            this.doctorList=data  
+            console.log('salaaaa' , data);
+            this.doctorList=data
+     
+              
           })
         })
         if (this.doctorList.length==0) {
@@ -38,11 +43,15 @@ export class DoctorsComponent {
           this.status=false
         }
     }
-    
-  listdrug(){
-    let data:any
-    this.panelService.listDrug().subscribe((data: any) => {
-      this.doctorList = data.data;
-    })
-  }
+    listdrug(){
+      let data={
+        "expertise":''
+      }
+      this.panelService.listDoctor(data).subscribe((data: any) => {
+        console.log(data);
+        
+        this.doctorList = data;
+      })
+    }
+
 }

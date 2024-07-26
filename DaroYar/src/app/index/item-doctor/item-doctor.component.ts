@@ -24,7 +24,7 @@ export class ItemDoctorComponent {
   getDoctor(id:string){
     this.panelService.getDoctorById((id)).subscribe({
       next: (data: any) => {
-        this.doctor=data.data
+        this.doctor=data
       },
       error:(err) => {
 

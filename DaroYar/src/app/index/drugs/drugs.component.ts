@@ -26,11 +26,15 @@ export class DrugsComponent {
   drugList:any=[]
   getDrug(event?: any) {
     let data={
-      "title":event.target.value
+      "name":event.target.value
     }
-        this.panelService.listDrug().subscribe({
+        this.panelService.listDrug(data).subscribe({
           next: ((data: any) => {
-            this.drugList=data  
+            console.log(data);
+            
+            this.drugList=data 
+            console.log(this.drugList[0].value.image_url);
+             
           })
         })
         if (this.drugList.length==0) {
@@ -42,9 +46,13 @@ export class DrugsComponent {
     }
     
   listdrug(){
-    let data:any={}
-    this.panelService.listDrug().subscribe((data: any) => {
-      this.drugList = data.data;
+    let data={
+      "name":''
+    }
+    this.panelService.listDrug(data).subscribe((data: any) => {
+      console.log(data);
+      
+      this.drugList = data;
     })
   }
 }
