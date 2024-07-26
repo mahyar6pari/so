@@ -1,0 +1,32 @@
+
+<div class="nav ">
+    <div class="color m card-body">
+      <span><a routerLink="/home"   >دارویار</a><i class="bi bi-arrow-left color mr-2 ml-2"></i><a routerLink="/doctors">دکتر ها</a> <i class="bi bi-arrow-left color mr-2 ml-2"></i> {{doctor.firstname}} {{doctor.lastname}}</span> 
+    </div>
+    </div>
+
+    <div class="d-flex justify-content-center align-items-center">
+    <div class="card d-flex justify-content-center align-items-center">
+        
+        <div class="profile-summary-backdrop mb-4"> 
+            <div class="profile-summary-pic">
+            
+              <img *ngIf="doctor.image_url" [src]="doctor.image_url" alt="">
+            </div>
+    
+          </div>
+          <div class="card-body ">
+          
+            <h5 class="card-title size">{{doctor.firstname}} {{doctor.lastname}} </h5>
+          </div>
+        <div class="card-body flex_title">
+            <h5 class="card-title"> <i class="bi bi-geo-alt"></i>{{doctor.city}} </h5>
+            <h5 class="card-text card-body-margin" ><i class="bi bi-hospital"></i>  {{doctor.hospital}}</h5>
+  
+          </div>
+          <div class="card-body card-title-address">
+            <p class="card-title "> <i class="bi bi-geo-alt"></i> آدرس : {{doctor.address}} </p>
+          
+          </div>
+      </div>
+    </div>

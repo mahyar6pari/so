@@ -1,0 +1,38 @@
+<div class="nav ">
+    <div class="color m card-body">
+        <span class="text" ><a routerLink="/home"   >دارویار</a><i class="bi bi-arrow-left color mr-2 ml-2"></i>   داروخانه ها </span>
+    </div>
+    </div>
+    
+    <div class="width">
+    <div class="card card-xl-stretch form mt-0 w">
+        <div class="card-body "  >
+    <div class="row">
+            <div class="col-sm-12 " >
+              <div class="form-group">
+    
+                <input type="text" (keyup)="getPharmacy($event)"  class="form-control form-control-lg form-control-solid" placeholder="جست و جو دارو خانه">        
+              </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    
+      
+    <div  class="container mt-12">
+        <div class="row ">
+          <div *ngFor="let item of pharmacyList" class="col-lg-4 d-flex justify-content-around">
+            <div class="card " [routerLink]="['/pharmacy/',item.id]">
+                <img class="card-img-top" src={{item.img}} alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">{{item.pi}} </h5>
+                  <p class="card-text">{{item.title}}</p>
+    
+                </div>
+              </div>
+          </div>
+          
+        </div>
+        <div class="font" *ngIf="status">نتیجه ای یافت نشد</div>
+      </div>
+    </div>

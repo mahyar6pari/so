@@ -1,0 +1,20 @@
+.card{
+    background-color: rgb(255, 255, 255);
+}
+
+
+form:before {
+    content: '';
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 30px;
+    background-color:#007bff;
+  }
+  button{
+    background-color:#007bff !important;
+    color: black;
+  }

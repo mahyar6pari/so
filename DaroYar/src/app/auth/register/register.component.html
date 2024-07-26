@@ -1,0 +1,114 @@
+<section class="width gradient-custom">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-7">
+                <div class="card bg-white " style="border-radius: 1rem;">
+                    <div class="card-body p-5 text-center">
+
+                        <div class="mb-md-5 mt-md-4 pb-5">
+                        <form [formGroup]="registerForm">
+                            <h2 class="fw-bold mb-2 text-uppercase">ثبت نام</h2>
+                            <p class=" mb-5">اطلاعات خود را ثبت کنید </p>
+
+                            <div class="row mb-3">
+                                <div class="col-lg-6 col-12">
+                                  <div class="form-group">
+                                    <label class="form-label"> کد ملی <span class="text-danger">*</span> </label>
+                                    <input type="text" formControlName="codemeli" class="form-control form-control-lg form-control-solid ">
+                                    <div class="hint">
+                                      <div *ngIf="submitted &&  registerForm.get('codemeli')?.errors?.['required']">
+                                        <span>پر کردن این فیلد اجباری است</span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-lg-6 col-12">
+                                  <div class="form-group">
+                                    <label class="form-label"> نام <span class="text-danger">*</span> </label>
+                                    <input type="text" formControlName="firstname" class="form-control form-control-lg form-control-solid ">
+                                    <div class="hint">
+                                      <div *ngIf="submitted &&  registerForm.get('firstname')?.errors?.['required']">
+                                        <span>پر کردن این فیلد اجباری است</span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                </div>
+
+
+                                <div class="row mb-3">
+                                    <div class="col-lg-6 col-12">
+                                      <div class="form-group">
+                                        <label class="form-label"> نام خانوادگی  <span class="text-danger">*</span> </label>
+                                        <input type="text" formControlName="lastname" class="form-control form-control-lg form-control-solid ">
+                                        <div class="hint">
+                                          <div *ngIf="submitted &&  registerForm.get('lastname')?.errors?.['required']">
+                                            <span>پر کردن این فیلد اجباری است</span>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="col-lg-6 col-12">
+                                      <div class="form-group">
+                                        <label class="form-label"> شماره موبایل <span class="text-danger">*</span> </label>
+                                        <input type="text" formControlName="mobile" class="form-control form-control-lg form-control-solid ">
+                                        <div class="hint">
+                                          <div *ngIf="submitted &&  registerForm.get('mobile')?.errors?.['required']">
+                                            <span>پر کردن این فیلد اجباری است</span>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    </div>
+
+                                    <div class="row mb-3">
+                                   
+        <div class="col-lg-6 col-12">
+            <div class="form-group">
+              <ng-persian-datepicker [dateGregorianFormat]="'YYYY-MM-DD'" calendar.gregorian.locale
+                [dateInitValue]="false">
+                <label class="form-label">تاریخ تولد <span class="text-danger">*</span></label>
+                <input type="text" class="form-control form-control-lg form-control-solid" #publishDate
+                  [value]="(publishDate.value | farsiNumber)" formControlName="birthday" placeholder="تاریخ تولد" />
+              </ng-persian-datepicker>
+  
+              <div *ngIf="submitted && registerForm.controls['birthday'].invalid" class="hint">
+                <div *ngIf="registerForm.get('birthday')?.errors?.['required']">
+                  <span>پر کردن این فیلد اجباری است</span>
+                </div>
+              </div>
+            </div>
+          </div>
+                            
+                                      <div  class="col-lg-6 col-md-6 col-sm-12" >
+                                        <!-- Gender -->
+                                        <div class="form-group">
+                                          <label class="form-label">جنسیت <span class="text-danger">*</span></label>
+                                          <div>
+                                            <div class="form-check form-check-inline mt-3 mb-4">
+                                              <input class="form-check-input" type="radio" formControlName="gender" id="gender1" value="مذکر"
+                                                name="gender" />
+                                              <label class="form-check-label" for="gender1"> مذکر </label>
+                                            </div>
+                                            <div class="form-check form-check-inline mt-3 mb-4">
+                                              <input class="form-check-input" type="radio" formControlName="gender" id="gender2" value="مونث"
+                                                name="gender" />
+                                              <label class="form-check-label" for="gender2"> مونث </label>
+                                            </div>
+                                          </div>
+                                          <div *ngIf="submitted && registerForm.controls['gender'].invalid" class="hint">
+                                            <div *ngIf="registerForm.get('gender')?.errors?.['required']">
+                                              <span>پر کردن این فیلد اجباری است</span>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                            <button data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-light btn-lg px-5"
+                            type="button"  (click)="submit()">ثبت</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,88 @@
+<div class="col-12 color p-4 mb-12 ">
+  </div>
+<div class="container panelContainer mt-12">
+<div class="conrainerCustomBottomHeade">
+  <div class="row">
+    <div class="col-xs-12 col-sm-7 col-md-5 col-lg-4 col-xl-3" style="z-index: 100;">
+      <div class="menu-secton">
+        <div class="menu-top-section">
+          <div class="profile-summary-backdrop">
+            <div class="profile-summary-pic">
+         <!--    <img *ngIf="!user.profile_image_id" src="assets/media/avatars/blank.png" alt="">
+              <img *ngIf="user.profile_image_id" [src]="getFile(user.profile_image_id)" alt="">-->
+            </div>
+
+          </div>
+          <div class="profile-summary-item-container">
+            <ul>
+              <li>
+                <span class="key">نام و نام خانوادگی</span>
+              <!-- <span class="val">{{user.firstname}}&nbsp;{{user.lastname}}</span>--> 
+              </li>
+              <li class="lp-profile-summary-logout mt-2" (click)="logout()">
+                <span class="icon"><i class="fas fa-power-off"></i></span>
+                <span class="val">خروج</span>
+              </li>
+              <li>
+                <span class="key">تاریخ اخرین ورود</span>
+               <!-- <span class="val">{{user.updated_at}}</span>-->
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="menu-bootom-section">
+
+          <ul>
+            <li class="nav-item">
+              <a class="nav-link collapsed" data-bs-toggle="collapse" href="#submenu1" role="button"
+                aria-expanded="false" aria-controls="submenu1">
+                <span>اطلاعات کاربری</span>
+                <i class="fas fa-caret-down left mt-3"></i>
+              </a>
+            </li>
+            <div class="collapse" id="submenu1">
+              <li [routerLinkActive]='["active"]'>
+                <a href="#" [routerLink]='["/dashboard/profile"]' class="nav-link nav-color ">
+                  <span>پروفایل کاربری </span>
+                </a>
+              </li>
+              <li class="nav-item" [routerLinkActive]='["active"]'>
+                <a href="#" [routerLink]='["/dashboard/reset-password"]' class="nav-link ">
+                  <span>تغییر گذرواژه</span>
+                </a>
+              </li>
+            </div>
+              <li class="nav-item" [routerLinkActive]='["active"]'>
+                <a href="#" [routerLink]='["/dashboard/register"]' class="nav-link ">
+                  <span>   لیست دارو ها  </span>
+                </a>
+              </li>
+              
+              <li class="nav-item">
+                <a class="nav-link collapsed" routerLink='/dashboard/profile'>
+                  <span> لیست پزشک ها</span>
+                  <i class="fas fa-caret-down left mt-3"></i>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-toggle="collapse" routerLink="/panel/prescription" role="button"
+                  aria-expanded="false" aria-controls="submenu3">
+                  <span> افزودن نسخه</span>
+                  <i class="fas fa-caret-down left mt-3"></i>
+                </a>
+              </li>       
+          </ul>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="info col-xs-12 col-sm-5 col-md-7 col-lg-8 col-xl-9">
+      <router-outlet></router-outlet>
+    </div>
+
+  </div>
+</div>
+</div>
+

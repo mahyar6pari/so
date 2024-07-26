@@ -1,0 +1,38 @@
+<div class="card card-xl-stretch form mt-0">
+    <div class="col-12 color p-1 mb-3 ">
+    </div>
+    <div class="card-header border-0">
+      <div class="card-title align-items-start flex-column font">
+        <span class="card-label   mb-1 mt-6">افزودن نسخه</span>
+        <span class="text-muted mt-1 fw-bold fs-7"></span>
+      </div>
+    </div>
+    <form [formGroup]="prescription_form">
+      <div class="card-body" >
+  
+ 
+
+  <div class="row">
+          <div class="col-lg-4 col-sm-12 " >
+            <div class="form-group">
+              <label class="form-label">کد نسخه</label>
+              <input type="text" formControlName="id" class="form-control form-control-lg form-control-solid">
+              
+            </div>
+          </div>
+
+
+
+      
+    
+        
+      </div>
+      <button  class="col-md-4 col-lg-3 col-xl-2 btn btn-color mt-3 " (click)="addPrescription()">
+        ثبت
+       <i class="fa fa-spinner fa-pulse"></i>
+     </button>
+      </div>
+    </form>
+  </div>
+
+  

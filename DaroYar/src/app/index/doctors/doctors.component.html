@@ -1,0 +1,52 @@
+<div class="nav ">
+    <div class="color m card-body">
+      <span><a routerLink="/home"   >دارویار</a><i class="bi bi-arrow-left color mr-2 ml-2"></i>   دکتر ها </span>
+    </div>
+    </div>
+    
+    <div class="width">
+    <div class="card card-xl-stretch form mt-0 w">
+        <div class="card-body " >
+    <div class="row">
+            <div class="col-sm-12 " >
+              <div class="form-group">
+    
+                <input type="text" (keyup)="getDoctor($event)"  class="form-control form-control-lg form-control-solid" placeholder="جست و جو دکتر">        
+              </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    
+      
+    <div  class="container mt-12">
+        <div class="row ">
+          <div *ngFor="let item of doctorList" class="col-lg-4 d-flex justify-content-around">
+           
+              <div class=" card-cursor d-flex justify-content-center align-items-center" [routerLink]="['/doctor/',item.id]">
+                <div class="card d-flex justify-content-center align-items-center">
+                    
+                    <div class="profile-summary-backdrop mb-4" > 
+                        <div class="profile-summary-pic">
+                        
+                          <img *ngIf="item.image_url" [src]="item.image_url" alt="">
+                        </div>
+                
+                      </div>
+                      <div class="card-body ">
+                      
+                        <h5 class="card-title card-title-size">{{item.firstname}} {{item.lastname}} </h5>
+                      </div>
+                    <div class="card-body flex_title">
+                        <h5 class="card-title"> <i class="bi bi-geo-alt"></i>{{item.city}} </h5>
+                        <h5 class="card-text card-body-margin" ><i class="bi bi-hospital"></i>  {{item.hospital}}</h5>
+              
+                      </div>
+                  </div>
+                </div>
+          </div>
+          
+        </div>
+        <div class="font" *ngIf="status">نتیجه ای یافت نشد</div>
+      </div>
+    </div>

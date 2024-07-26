@@ -1,0 +1,339 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+    direction: rtl;
+    font-family: IRANSans;
+    font-size: 16px !important;
+   
+  }
+  
+  @font-face {
+    font-family: IRANSans;
+    font-style: normal;
+    font-weight: 500;
+    src: url("/assets/Font/iransans/eot/IRANSansWeb_Medium.eot");
+    src: url("/assets/Font/iransans/eot/IRANSansWeb_Medium.eot?#iefix")
+        format("embedded-opentype"),
+      /* IE6-8 */ url("/assets/Font/iransans/woff2/IRANSansWeb_Medium.woff2")
+        format("woff2"),
+      /* FF39+,Chrome36+, Opera24+/ url("/assets/Font/iransans/woff/IRANSansWeb_Medium.woff") format("woff"),
+    / FF3.6+, IE9, Chrome6+, Saf5.1+*/
+        url("/assets/Font/iransans/ttf/IRANSansWeb_Medium.ttf") format("truetype");
+  }
+  
+  @font-face {
+    font-family: IRANSans;
+    font-style: normal;
+    font-weight: bold;
+    src: url("/assets/Font/iransans/woff2/IRANSansWeb_Bold.woff2") format("woff2");
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      margin-top: -5px;
+    }
+  
+    50% {
+      opacity: 0;
+      margin-top: -5px;
+    }
+  
+    100% {
+      opacity: 1;
+      margin-top: 5px;
+    }
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: IRANSans !important;
+    font-size: 16px !important;
+  }
+  
+  i.bi::before {
+    vertical-align: middle;
+  }
+  
+  :root {
+    --category-bg: rgba(174, 219, 228, 0.997);
+  
+    [theme-color="default"] {
+      --form-background: rgb(250, 250, 250);
+      --form-background-disabled: rgb(245, 245, 245);
+      --form-success: rgb(37, 170, 68);
+      --form-border-error: rgb(255, 0, 0);
+      --form-border-default: rgb(210, 210, 210);
+      --form-border-focus: rgb(133, 133, 133);
+      --form-border-focus-bottom: rgb(87, 87, 87);
+    }
+  
+    [theme-color="blue"] {
+      --form-background: rgb(250, 250, 250);
+      --form-background-disabled: rgb(245, 245, 245);
+      --form-success: rgb(37, 170, 68);
+      --form-border-error: rgb(255, 0, 0);
+      --form-border-default: rgb(210, 210, 210);
+      --form-border-focus: rgb(131, 181, 255);
+      --form-border-focus-bottom: rgb(95, 85, 245);
+    }
+  
+    [theme-color="orange"] {
+      --form-background: rgb(255, 230, 205);
+      --form-background-disabled: rgb(245, 245, 245);
+      --form-success: rgb(37, 170, 68);
+      --form-border-error: rgb(255, 0, 0);
+      --form-border-default: rgb(253, 230, 192);
+      --form-border-focus: rgb(254, 222, 173);
+      --form-border-focus-bottom: rgb(245, 173, 90);
+    }
+  
+    --table-text-color: rgba(34, 42, 66, 0.7);
+    --table-success-text: #0d6832;
+    --table-primary-text: #273e63;
+    --table-warning-text: #73510d;
+    --table-danger-text: #a61001;
+    --table-success-bg: #d6f0e0;
+    --table-primary-bg: #dfe7f6;
+    --table-warning-bg: #fbf0da;
+    --table-danger-bg: #ffebe9;
+    --table-primary-btn-text: #3b71ca;
+  }
+  
+  // global styles for form inputs
+  
+  .error-alert {
+    position: absolute;
+    bottom: -21px;
+    right: 25px;
+    color: red;
+    font-size: 0.8rem;
+    border: 1px solid red;
+    border-radius: 5px !important;
+    background-color: rgb(250, 205, 214);
+    padding: 0px;
+    padding-inline: 8px;
+    z-index: 5;
+  }
+  
+  .form-control {
+    border: 1px solid var(--form-border-default);
+    background-color: var(--form-background);
+    border-radius: 10px;
+    padding-right: 10px;
+    direction: rtl;
+  
+    &:not(tag-input) {
+      height: 40px;
+    }
+  
+    &:focus {
+      border: 1px solid var(--form-border-focus);
+      border-bottom: 3px solid var(--form-border-focus-bottom);
+      margin-bottom: 0;
+      box-shadow: none;
+    }
+  
+    &.form-success {
+      border-bottom: 3px solid var(--form-success) !important;
+      margin-bottom: 0;
+    }
+  
+    &.form-invalid {
+      // border:1px solid var(--form-border-error);
+      border-bottom: 3px solid var(--form-border-error) !important;
+      margin-bottom: 0;
+    }
+  }
+  
+  .textarea {
+    background-color: rgb(250, 250, 250) !important;
+    border: 1px solid rgb(210, 210, 210) !important;
+    border-radius: 10px;
+    direction: rtl;
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+    float: right;
+    width: 100%;
+    height: 100px;
+    font-family: IRANSans;
+    font-size: 15px;
+    resize: none;
+  }
+  
+  .selectBox {
+    background-color: rgb(250, 250, 250) !important;
+    border: 1px solid var(--form-border-default);
+    border-radius: 10px;
+    padding-right: 10px;
+    padding-left: 50px;
+    direction: rtl;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    cursor: pointer;
+  
+    &:focus {
+      box-shadow: none;
+      outline: none;
+      border-bottom: 1px solid var(--form-border-focus) !important;
+      border-left: 3px solid var(--form-border-focus-bottom) !important;
+      border-right: 3px solid var(--form-border-focus-bottom) !important;
+    }
+  
+    &.form-invalid {
+      border-bottom: 1px solid var(--form-border-default) !important;
+      border-left: 3px solid var(--form-border-error) !important;
+      border-right: 3px solid var(--form-border-error) !important;
+    }
+  
+    &.form-success {
+      border-bottom: 1px solid var(--form-border-default) !important;
+      border-left: 3px solid var(--form-success) !important;
+      border-right: 3px solid var(--form-success) !important;
+    }
+  }
+  
+  .selectboxLabel {
+    position: relative;
+    display: block;
+  
+    &::before {
+      content: "<>";
+      font: 11px "Consolas", monospace;
+      color: #12b800;
+      -webkit-transform: rotate(90deg);
+      -moz-transform: rotate(90deg);
+      transform: rotate(90deg);
+      border-top: 1px solid #ddd;
+      position: absolute;
+      left: 15px;
+      top: 12px;
+      pointer-events: none;
+    }
+  }
+  
+  .datepicker-outer-container {
+    direction: rtl;
+    position: absolute;
+    z-index: 1000;
+    max-width: 200px;
+  }
+  
+  input.datePicker {
+    background-color: rgb(250, 250, 250) !important;
+  
+    &:focus {
+      border: 1px solid var(--form-border-focus);
+      border-left: 3px solid var(--form-border-focus-bottom);
+      border-right: 3px solid var(--form-border-focus-bottom);
+      box-shadow: none;
+    }
+  
+    &.form-invalid {
+      border-bottom: 1px solid var(--form-border-default) !important;
+      border-left: 3px solid var(--form-border-error) !important;
+      border-right: 3px solid var(--form-border-error) !important;
+    }
+  
+    &.form-success {
+      border-bottom: 1px solid var(--form-border-default) !important;
+      border-left: 3px solid var(--form-success) !important;
+      border-right: 3px solid var(--form-success) !important;
+    }
+  }
+  
+  .form-control:read-only {
+    background-color: rgb(250, 250, 250) !important;
+  
+    &:focus {
+      border: 1px solid var(--form-border-default);
+    }
+  }
+  
+  .datePicker:read-only {
+    background-color: rgb(250, 250, 250) !important;
+  
+    &.datePicker:focus {
+      background-color: rgb(179, 255, 214) !important;
+      border: 1px solid var(--form-border-focus);
+      border-left: 3px solid var(--form-border-focus-bottom);
+      border-right: 3px solid var(--form-border-focus-bottom);
+      box-shadow: none;
+    }
+  }
+  
+  tag-input {
+    &:focus-within {
+      border-bottom: 1px solid var(--form-border-focus) !important;
+      border-left: 3px solid var(--form-border-focus-bottom) !important;
+      border-right: 3px solid var(--form-border-focus-bottom) !important;
+      font-family: IRANSans;
+    }
+  
+    tag {
+      border-radius: 5px !important;
+  
+      &::before {
+        content: "#";
+      }
+    }
+  
+    .ng2-tag-input {
+      border-bottom: none !important;
+    }
+  
+    .ng2-tag-input__text-input {
+      background-color: transparent;
+      font-family: IRANSans !important;
+    }
+  
+    .tag__text {
+      font-family: IRANSans !important;
+    }
+  }
+  
+  label {
+    justify-content: start !important;
+    font-family: IRANSans;
+  }
+  
+  .label {
+    font-family: IRANSans;
+    display: flex;
+    justify-content: end;
+    margin: 5px 10px 0px 10px;
+  }
+  
+  label.txt::after {
+    background-color: rgba(255, 255, 255, 0) !important;
+  }
+  
+  .star {
+    font-family: IRANSans;
+    display: flex;
+    justify-content: start;
+  }
+  
+  .star::after {
+    content: "*";
+    font-size: 15px;
+    color: rgb(249, 13, 13);
+    // margin: 5px 10px 0px 10px;
+  }
+  
+  input:disabled {
+    background-color: #eeeeee;
+  }
+  
+  .errors {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+  }
+  

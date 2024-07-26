@@ -1,0 +1,16 @@
+<div class="nav ">
+    <div class="color m card-body">
+      <span><a routerLink="/home"   >دارویار</a><i class="bi bi-arrow-left color mr-2 ml-2"></i><a routerLink="/pharmacy"> دارو ها</a> <i class="bi bi-arrow-left color mr-2 ml-2"></i> {{pharmacy.name}}</span> 
+    </div>
+    </div>
+
+    <div class="d-flex justify-content-center align-items-center">
+    <div class="card ">
+        <img class="card-img-top" src={{pharmacy.image}} alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{pharmacy.pi}} </h5>
+          <p class="card-text">{{pharmacy.title}}</p>
+
+        </div>
+      </div>
+    </div>

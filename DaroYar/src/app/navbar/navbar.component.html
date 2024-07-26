@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top" dir="rtl">
+    <a class="navbar-brand m-2  p-3 rounded" routerLink="/home">دارویار</a>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+            <li class="nav-item" *ngIf="authService.localstrongfull">
+                <a class="navbar-brand m-2  p-3 rounded" routerLink="/loginPage">ورود</a>
+            </li>
+            <li class="nav-item" *ngIf="authService.localstrongfull">
+                <a class="navbar-brand m-2  p-3 rounded" routerLink="/register">ثبت نام</a>
+            </li>
+            <li class="nav-item" *ngIf="!authService.localstrongfull">
+                <a class="navbar-brand m-2  p-3 rounded" (click)="logout()" routerLink="/home">خروج</a>
+            </li>
+            <li class="nav-item">
+                <a class="navbar-brand m-2  p-3 rounded" routerLink="/drugs">داروها</a>
+            </li>
+            <li class="nav-item">
+                <a class="navbar-brand m-2  p-3 rounded" routerLink="/doctors">پزشک ها</a>
+            </li>
+            <li class="nav-item">
+                <a class="navbar-brand m-2  p-3 rounded" routerLink="/pharmacy"> شرکت های دارو سازی</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
