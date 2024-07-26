@@ -28,7 +28,7 @@ export class DrugsComponent {
     let data={
       "title":event.target.value
     }
-        this.panelService.listDrug(data).subscribe({
+        this.panelService.listDrug().subscribe({
           next: ((data: any) => {
             this.drugList=data  
           })
@@ -43,7 +43,7 @@ export class DrugsComponent {
     
   listdrug(){
     let data:any={}
-    this.panelService.listDrug(data).subscribe((data: any) => {
+    this.panelService.listDrug().subscribe((data: any) => {
       this.drugList = data.data;
     })
   }

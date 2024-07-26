@@ -15,20 +15,20 @@ import { Injectable, inject } from "@angular/core";
 
 
     //////index
-    listDrug(data:any) {
-      return this.http.post(`http://localhost:4000/api/medicinename`,data)
+    listDrug() {
+      return this.http.get(`http://localhost:4000/api/medicinename`)
   }
   getDrugById(id:any){
     return this.http.get(`http://localhost:4000/api/doctors`+id)
   }
-  listPharmacy(data:any) {
-    return this.http.post(`http://localhost:4000/api/companyname`,data)
+  listPharmacy() {
+    return this.http.get(`http://localhost:4000/api/companyname`)
 }
 getPharmacyById(id:any){
   return this.http.get(`http://localhost:4000/api/pharmacy`+id)
 }
-  listDoctor(data:any) {
-    return this.http.post(`http://localhost:4000/api/doctorsname`,data)
+  listDoctor() {
+    return this.http.get(`http://localhost:4000/api/doctorsname`)
 }
   getDoctorById(id:any){
     return this.http.get(`http://localhost:4000/api/doctors`+id)

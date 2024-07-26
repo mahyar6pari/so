@@ -27,7 +27,7 @@ export class PharmacyComponent {
     let data={
       
     }
-        this.panelService.listDrug(data).subscribe({
+        this.panelService.listDrug().subscribe({
           next: ((data: any) => {
             this.pharmacyList=data  
           })
@@ -42,7 +42,7 @@ export class PharmacyComponent {
     
   listPharmacy(){
     let data:any={}
-    this.panelService.listPharmacy(data).subscribe((data: any) => {
+    this.panelService.listPharmacy().subscribe((data: any) => {
       this.pharmacyList = data.data;
     })
   }
