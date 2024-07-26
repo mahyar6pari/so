@@ -28,28 +28,28 @@ export class DrugsComponent {
     let data={
       "name":event.target.value
     }
-        this.panelService.listDrug(data).subscribe({
+        this.panelService.listDrug().subscribe({
           next: ((data: any) => {
             console.log(data);
             
             this.drugList=data 
             console.log(this.drugList[0].value.image_url);
-             
+            if (this.drugList.length==0) {
+              this.status=true
+            }
+            else{
+              this.status=false
+            }
           })
         })
-        if (this.drugList.length==0) {
-          this.status=true
-        }
-        else{
-          this.status=false
-        }
+       
     }
     
   listdrug(){
     let data={
       "name":''
     }
-    this.panelService.listDrug(data).subscribe((data: any) => {
+    this.panelService.listDrug().subscribe((data: any) => {
       console.log(data);
       
       this.drugList = data;

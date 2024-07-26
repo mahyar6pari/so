@@ -14,7 +14,7 @@ export class DoctorsComponent {
   panelService=inject(PanelService)
   status:boolean=false
     constructor(){
-    this.getDoctor()
+    this.listdoctor()
     if (this.doctorList.length==0) {
       this.status=true
     }
@@ -28,7 +28,7 @@ export class DoctorsComponent {
     let data={
       "expertise":event.target.value
     }
-        this.panelService.listDoctor(data).subscribe({
+        this.panelService.listDoctor().subscribe({
           next: ((data: any) => {
             console.log('salaaaa' , data);
             this.doctorList=data
@@ -43,11 +43,11 @@ export class DoctorsComponent {
           this.status=false
         }
     }
-    listdrug(){
+    listdoctor(){
       let data={
         "expertise":''
       }
-      this.panelService.listDoctor(data).subscribe((data: any) => {
+      this.panelService.listDoctor().subscribe((data: any) => {
         console.log(data);
         
         this.doctorList = data;

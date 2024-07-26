@@ -60,6 +60,30 @@
                                       </div>
                                     </div>
                                     </div>
+                                    <div class="row mb-3">
+                                      <div class="col-lg-6 col-12">
+                                        <div class="form-group">
+                                          <label class="form-label">  رمز  <span class="text-danger">*</span> </label>
+                                          <input type="text" formControlName="lastname" class="form-control form-control-lg form-control-solid ">
+                                          <div class="hint">
+                                            <div *ngIf="submitted &&  registerForm.get('lastname')?.errors?.['required']">
+                                              <span>پر کردن این فیلد اجباری است</span>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="col-lg-6 col-12">
+                                        <div class="form-group">
+                                          <label class="form-label"> ادرس<span class="text-danger">*</span> </label>
+                                          <input type="text" formControlName="mobile" class="form-control form-control-lg form-control-solid ">
+                                          <div class="hint">
+                                            <div *ngIf="submitted &&  registerForm.get('mobile')?.errors?.['required']">
+                                              <span>پر کردن این فیلد اجباری است</span>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      </div>
 
                                     <div class="row mb-3">
                                    
@@ -104,6 +128,7 @@
                                         </div>
                                       </div>
                                     </div>
+                                    
                             <button data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-light btn-lg px-5"
                             type="button"  (click)="submit()">ثبت</button>
                         </form>
