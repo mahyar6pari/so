@@ -27,7 +27,7 @@ export class PharmacyComponent {
     let data={
       "destination":event.target.value
     }
-        this.panelService.listPharmacy(data).subscribe({
+        this.panelService.listPharmacy().subscribe({
           next: ((data: any) => {
             this.pharmacyList=data  
           })
@@ -44,7 +44,7 @@ export class PharmacyComponent {
     let data={
       "destination":''
     }
-    this.panelService.listPharmacy(data).subscribe((data: any) => {
+    this.panelService.listPharmacy().subscribe((data: any) => {
       this.pharmacyList = data.data;
     })
   }
