@@ -22,6 +22,7 @@ export class RegisterComponent {
   test:boolean=true
 constructor(){
   this.createForm() 
+  this.createForm2()
   if (this.registerForm.value.role==2 || this.registerForm.value.role==3) {
    
     this.test=false
@@ -31,6 +32,7 @@ constructor(){
 submitform(){
   if (this.registerForm.value.role) {
     this.id=this.registerForm.value.role
+    this.registerForm2.value.role=this.registerForm.value.role
     this.router.navigateByUrl(`register/`+this.registerForm.value.role)
     this.test=true
   }
@@ -79,7 +81,17 @@ submitform(){
     }
 
   }
-
+  submitfa(){
+    console.log(this.registerForm2.value);
+    
+    this.panelService.register(this.registerForm2.value).subscribe({
+      next: (data: any) => {
+      },
+      error:(err) => {
+      }
+    })
+    console.log(this.registerForm2);
+  }
   addPatient(){
 
     this.type2.push(this.formBuilder.group({
@@ -96,7 +108,7 @@ submitform(){
   }
 
   get type(){
-    return this.registerForm.get('type') as FormArray
+    return this.registerForm2.get('type') as FormArray
   }
   
   createForm(){
@@ -111,8 +123,18 @@ submitform(){
       address:['', Validators.required],
       role:['', Validators.required],
       PatientId:[''],
-      type: this.formBuilder.array([]),
       type2: this.formBuilder.array([]),
+    })
+  }
+  registerForm2:any
+  createForm2(){
+    this.registerForm2=this.formBuilder.group({
+      firstname:['', Validators.required],
+      lastname:['', Validators.required],
+      mobile:['', Validators.required],
+      role:['', Validators.required],
+      PatientId:[''],
+      type: this.formBuilder.array([]),
     })
   }
   
