@@ -4,6 +4,7 @@ import { FormArray, FormBuilder, FormsModule, ReactiveFormsModule, Validators } 
 import { PanelService } from '../../panel.service';
 import { FarsiNumberPipe } from "../../@shared/pipe/farsiNumber/farsi-number.pipe";
 import { NgPersianDatepickerModule } from 'ng-persian-datepicker';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -15,12 +16,33 @@ import { NgPersianDatepickerModule } from 'ng-persian-datepicker';
 export class RegisterComponent {
   formBuilder=inject(FormBuilder)
   panelService=inject(PanelService)
+  router=inject(Router)
   submitted:boolean=false
   registerForm:any
+  test:boolean=true
 constructor(){
   this.createForm() 
+  if (this.registerForm.value.role==2 || this.registerForm.value.role==3) {
+   
+    this.test=false
+  }
 }
-
+ id:any=0
+submitform(){
+  if (this.registerForm.value.role) {
+    this.id=this.registerForm.value.role
+    this.router.navigateByUrl(`register/`+this.registerForm.value.role)
+    this.test=true
+  }
+  else{
+    this.router.navigateByUrl(`register`)
+    this.test=true
+  }
+  if (this.registerForm.value.role==2 || this.registerForm.value.role==3) {
+    this.test=false
+  }
+  console.log(this.test);
+}
   
   submit(){
     console.log(this.registerForm.value);

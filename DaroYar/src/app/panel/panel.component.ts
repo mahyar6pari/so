@@ -13,6 +13,10 @@ import { AuthService } from '../auth/auth.service';
 })
 export class PanelComponent {
   public authService=inject(AuthService)
+  user:any
+  constructor(){
+    
+  }
 
   logout(){
     this.authService.clearTokenLocalStorage()

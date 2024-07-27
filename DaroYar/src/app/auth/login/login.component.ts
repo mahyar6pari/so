@@ -30,7 +30,7 @@ constructor(){
       next: (data: any) => {
         if (data!='PasswordIsWrong' && data!='NotAccount') {
           this.authService.setTokenLocalStorage(data as string)
-          this.router.navigateByUrl('home')
+          this.router.navigateByUrl('')
         }
         else if(data=='PasswordIsWrong'){
           window.alert("Password Is Wrong")

@@ -26,7 +26,7 @@ export const routes: Routes = [
             component:RegisterComponent
         },
         {
-          path:'register',
+          path:'register/:id',
           component:RegisterComponent
       },
         {
