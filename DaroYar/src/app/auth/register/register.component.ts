@@ -116,7 +116,7 @@ submitform(){
       codemeli:['', Validators.required],
       firstname:['', Validators.required],
       lastname:['', Validators.required],
-      mobile:['', Validators.required],
+      Relatives_id:['', Validators.required],
       gender:['', Validators.required],
       birthday:['', Validators.required],
       password:['', Validators.required],
