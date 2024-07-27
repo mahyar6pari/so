@@ -26,31 +26,52 @@ export class DoctorsComponent {
   doctorList:any=[]
   getDoctor(event?: any) {
     let data={
-      "expertise":event.target.value
+      "expertise":event.target.value,
     }
-        this.panelService.listDoctor().subscribe({
+        this.panelService.searchDoctors(data).subscribe({
           next: ((data: any) => {
-            console.log('salaaaa' , data);
             this.doctorList=data
-     
+            if (this.doctorList.length==0) {
+              this.status=true
+            }
+            else{
+              this.status=false
+            }
               
           })
         })
+      
+    }
+    getDoctorbyname(event?: any) {
+      let data={
+        "firstname":event.target.value,
+      }
+          this.panelService.searchDoctors(data).subscribe({
+            next: ((data: any) => {
+              this.doctorList=data
+              if (this.doctorList.length==0) {
+                this.status=true
+              }
+              else{
+                this.status=false
+              }
+                
+            })
+          })
+        
+      }
+    listdoctor(){
+
+      this.panelService.listDoctor().subscribe((data: any) => {
+        console.log(data);
+        
+        this.doctorList = data;
         if (this.doctorList.length==0) {
           this.status=true
         }
         else{
           this.status=false
         }
-    }
-    listdoctor(){
-      let data={
-        "expertise":''
-      }
-      this.panelService.listDoctor().subscribe((data: any) => {
-        console.log(data);
-        
-        this.doctorList = data;
       })
     }
 

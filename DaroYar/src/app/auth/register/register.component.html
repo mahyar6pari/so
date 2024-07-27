@@ -1,11 +1,42 @@
+<div class="card card-xl-stretch form mt-0">
+  <div class="col-12 color p-1 mb-3 ">
+  </div>
+  <div class="card-header border-0">
+    <div class="card-title align-items-start flex-column font">
+      <span class="card-label   mb-1 mt-6">افزودن نسخه</span>
+      <span class="text-muted mt-1 fw-bold fs-7"></span>
+    </div>
+  </div>
+  <form [formGroup]="registerForm">
+    <div class="card-body" >
+<div class="row">
+  <div class="col-lg-6 col-12 mb-5" >
+    <label class="form-label">     حالت   <span class="text-danger">*</span></label>
+    <select  (change)="checkValue2(registerForm.value.role)" class="form-select form-select-lg form-select-solid"  formControlName="role">
+      <option  value="1" >پزشک</option>
+      <option value="2"> بیمار</option>
+      <option  value="3" >اعضای خانواده بیمار</option>
+      <option value="4">شرکت دارویی </option>
+  </select>
+  </div>
+    </div>
+    <button  class="col-md-4 col-lg-3 col-xl-2 btn btn-color mt-3 " >
+      ثبت
+     <i class="fa fa-spinner fa-pulse"></i>
+   </button>
+    </div>
+  </form>
+</div>
+
+
 <section class="width gradient-custom">
-    <div class="container py-5 h-100">
+    <div class="container  h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
-            <div class="col-12 col-md-8 col-lg-6 col-xl-7">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-9">
                 <div class="card bg-white " style="border-radius: 1rem;">
                     <div class="card-body p-5 text-center">
 
-                        <div class="mb-md-5 mt-md-4 pb-5">
+                        <div class="mb-md-5  ">
                         <form [formGroup]="registerForm">
                             <h2 class="fw-bold mb-2 text-uppercase">ثبت نام</h2>
                             <p class=" mb-5">اطلاعات خود را ثبت کنید </p>
@@ -35,7 +66,7 @@
                                 </div>
                                 </div>
 
-
+                               
                                 <div class="row mb-3">
                                     <div class="col-lg-6 col-12">
                                       <div class="form-group">
@@ -60,13 +91,14 @@
                                       </div>
                                     </div>
                                     </div>
+                               
                                     <div class="row mb-3">
                                       <div class="col-lg-6 col-12">
                                         <div class="form-group">
-                                          <label class="form-label">  رمز  <span class="text-danger">*</span> </label>
-                                          <input type="text" formControlName="lastname" class="form-control form-control-lg form-control-solid ">
+                                          <label class="form-label"> رمز   <span class="text-danger">*</span> </label>
+                                          <input type="text" formControlName="password" class="form-control form-control-lg form-control-solid ">
                                           <div class="hint">
-                                            <div *ngIf="submitted &&  registerForm.get('lastname')?.errors?.['required']">
+                                            <div *ngIf="submitted &&  registerForm.get('password')?.errors?.['required']">
                                               <span>پر کردن این فیلد اجباری است</span>
                                             </div>
                                           </div>
@@ -74,16 +106,17 @@
                                       </div>
                                       <div class="col-lg-6 col-12">
                                         <div class="form-group">
-                                          <label class="form-label"> ادرس<span class="text-danger">*</span> </label>
-                                          <input type="text" formControlName="mobile" class="form-control form-control-lg form-control-solid ">
+                                          <label class="form-label"> آدرس  <span class="text-danger">*</span> </label>
+                                          <input type="text" formControlName="address" class="form-control form-control-lg form-control-solid ">
                                           <div class="hint">
-                                            <div *ngIf="submitted &&  registerForm.get('mobile')?.errors?.['required']">
+                                            <div *ngIf="submitted &&  registerForm.get('address')?.errors?.['required']">
                                               <span>پر کردن این فیلد اجباری است</span>
                                             </div>
                                           </div>
                                         </div>
                                       </div>
                                       </div>
+    
 
                                     <div class="row mb-3">
                                    
@@ -128,6 +161,46 @@
                                         </div>
                                       </div>
                                     </div>
+
+                                    <div class="row mb-3">
+                                    
+
+                                    <div   *ngIf="registerForm.value.role ==='2'" class="col-lg-6 col-12 margin-item" formArrayName="type2">
+                                      <div *ngFor="let item of type2.controls; let i = index; let first = first" id="item-container-{{i}}" class=" input-group mb-2">
+                                        <div class="form-group input-group w-100">
+                                          <div class=" input-group " [formGroupName]="i">
+                                            <input class="form-control form-control-lg form-control-solid"style="" id="item-{{i}}" placeholder="نام">
+                                            <input class="form-control form-control-lg form-control-solid"style="" id="item-{{i}}" formControlName="mobile" placeholder=" شماره موبایل">
+                                            <button type2="button" *ngIf="first" class="btn btn-primary  input-group-text wid  " (click)="addPatient()"><span class="fs-2">+</span></button>
+                                            <button type2="button" *ngIf="!first" class="btn btn-danger btnArray input-group-text wid " (click)="type2.removeAt(i)" ><span class="fs-2">-</span></button>
+                                            <div  *ngIf="submitted && type2.controls[i].invalid" class="hint hint-m">
+                                              <div *ngIf="type2.controls[i].errors?.['required']">
+                                                <span >پر کردن آیتم ۱ الزامی است</span>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div   *ngIf="registerForm.value.role ==='3'" class="col-lg-6 col-12 margin-item" formArrayName="type">
+                                      <div *ngFor="let item of type.controls; let i = index; let first = first" id="item-container-{{i}}" class=" input-group mb-2">
+                                        <div class="form-group input-group w-100">
+                                          <div class=" input-group " [formGroupName]="i">
+                                            <input class="form-control form-control-lg form-control-solid"style="" id="item-{{i}}" formControlName="id" placeholder="کد بیمار">
+                                            <button type="button" *ngIf="first" class="btn btn-primary  input-group-text wid  " (click)="addId()"><span class="fs-2">+</span></button>
+                                            <button type="button" *ngIf="!first" class="btn btn-danger btnArray input-group-text wid " (click)="type.removeAt(i)" ><span class="fs-2">-</span></button>
+                                            <div  *ngIf="submitted && type.controls[i].invalid" class="hint hint-m">
+                                              <div *ngIf="type.controls[i].errors?.['required']">
+                                                <span >پر کردن آیتم ۱ الزامی است</span>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+
+
+                                    </div>
                                     
                             <button data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-light btn-lg px-5"
                             type="button"  (click)="submit()">ثبت</button>
@@ -137,3 +210,5 @@
             </div>
         </div>
     </div>
+    </div>
+</section>

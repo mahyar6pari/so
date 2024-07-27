@@ -5,18 +5,29 @@
     </div>
     
     <div class="width">
-    <div class="card card-xl-stretch form mt-0 w">
+    <div class="card card-xl-stretch form mt-0 w d-flex flex-row ">
         <div class="card-body " >
     <div class="row">
             <div class="col-sm-12 " >
               <div class="form-group">
     
-                <input type="text" (keyup)="getDoctor($event)"  class="form-control form-control-lg form-control-solid" placeholder="جست و جو دکتر">        
+                <input type="text" (keyup)="getDoctorbyname($event)"  class="form-control form-control-lg form-control-solid" placeholder="جست و جو بر اساس نام">        
               </div>
             </div>
         </div>
         </div>
+        <div class="card-body " >
+          <div class="row">
+                  <div class="col-sm-12 " >
+                    <div class="form-group">
+          
+                      <input type="text" (keyup)="getDoctor($event)"  class="form-control form-control-lg form-control-solid" placeholder="جست و جو بر اساس تخصص">        
+                    </div>
+                  </div>
+              </div>
+              </div>
     </div>
+    
     
       
     <div  class="container mt-12">
@@ -35,11 +46,12 @@
                       </div>
                       <div class="card-body ">
                       
-                        <h5 class="card-title card-title-size">{{item.firstname}} {{item.lastname}} </h5>
+                        <h5 class="card-title card-title-size">دکتر {{item.firstname}} {{item.lastname}} </h5>
+                        <p class="card-title text-center">تخصص  {{item.expertise}}</p>
                       </div>
                     <div class="card-body flex_title">
                         <h5 class="card-title"> <i class="bi bi-geo-alt"></i>{{item.city}} </h5>
-                        <h5 class="card-text card-body-margin" ><i class="bi bi-hospital"></i>  {{item.hospital}}</h5>
+                        <h5 class=" " ><i class="bi bi-hospital"></i>  {{item.hospital}}</h5>
               
                       </div>
                   </div>

@@ -1,17 +1,27 @@
-<div class="nav ">
+<div class="nav  ">
 <div class="color m card-body">
     <span class="text" ><a routerLink="/home"   >دارویار</a><i class="bi bi-arrow-left color mr-2 ml-2"></i>   دارو ها </span>
 </div>
 </div>
 
 <div class="width">
-<div class="card card-xl-stretch form mt-0 w">
+<div class="card card-xl-stretch form mt-0 w d-flex flex-row">
+  <div class="card-body " >
+    <div class="row">
+            <div class="col-sm-12 " >
+              <div class="form-group">
+    
+                <input type="text" (keyup)="getDrug($event)"  class="form-control form-control-lg form-control-solid" placeholder="جست و جو بر اساس نام">        
+              </div>
+            </div>
+        </div>
+        </div>
     <div class="card-body " >
 <div class="row">
         <div class="col-sm-12 " >
           <div class="form-group">
 
-            <input type="text" (keyup)="getDrug($event)"  class="form-control form-control-lg form-control-solid" placeholder="جست و جو دارو">        
+            <input type="text" (keyup)="getDrugbyname($event)"  class="form-control form-control-lg form-control-solid" placeholder=" جست و جو دارو کد دارو">        
           </div>
         </div>
     </div>
@@ -24,9 +34,10 @@
       <div *ngFor="let item of drugList" class="col-lg-4 d-flex justify-content-around">
         <div class="card  " [routerLink]="['/drug/',item.id]" >
             <img class="card-img-top" src={{item.image_url}} alt="Card image cap">
-            <div class="card-body">
-              <p class="card-text "> شرکت سازنده : {{item.company}}</p>
-              <p class="card-title">{{item.name}} </p>
+            <div class="card-body Text-align">
+              <p class="card-text  ">  کد محصول : {{item.code}}</p>
+              <p class="card-text  ">شرکت تولید کنند   : {{item.company}}</p>
+              <p class="card-title text">نام محصول : {{item.name}} </p>
              
 
             </div>

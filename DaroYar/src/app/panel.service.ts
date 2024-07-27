@@ -21,16 +21,24 @@ import { Injectable, inject } from "@angular/core";
   getDrugById(id:any){
     return this.http.get(`http://localhost:4444/api/medicineById`+id)
   }
+  searchMedicine(data:any){
+    return this.http.post(`http://localhost:4444/api/searchmedicine`,data)
+  }
+
   listPharmacy() {
     return this.http.get(`http://localhost:4000/api/companyname`)
 }
 getPharmacyById(id:any){
   return this.http.get(`http://localhost:4000/api/pharmacy`+id)
 }
+
   listDoctor() {
     return this.http.get(`http://localhost:4444/api/doctorsname`)
 }
   getDoctorById(id:any){
-    return this.http.get(`http://localhost:4444/api/doctorById`+id)
+    return this.http.get(`http://localhost:4444/api/doctorspatients`+id)
+  }
+  searchDoctors(data:any){
+    return this.http.post(`http://localhost:4444/api/searchdoctors`,data)
   }
   }

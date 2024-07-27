@@ -8,7 +8,8 @@
  cursor: pointer;
 }
 .container{
-    margin: 0;
+    margin:0 ;
+    margin-right: 4px;
     padding: 0;
     
 }
@@ -54,8 +55,7 @@ a{
     font-size: 50px;
 }
 .width{
-   width: 70%;
-   margin-right: 15%;
+   width: 100%;
    display: flex;
    flex-direction: column;
    align-items: center;
@@ -65,7 +65,9 @@ a{
     width: 100%;
 }
 .card-title-size{
+    margin-top: 5px;
     font-size: 20px;
+    text-align: center;
 }
 .card-title{
     font-size: 16px;
@@ -83,9 +85,7 @@ a{
     flex-direction: row;
     gap: 80px;
 }
-.card-body-margin{
-    margin-right: 60px;
-}
+
 .profile-summary-pic {
     width: 100px;
     height: 100px;

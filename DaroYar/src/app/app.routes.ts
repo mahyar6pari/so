@@ -13,52 +13,53 @@ import { ItemDrugComponent } from './index/item-drug/item-drug.component';
 import { RegisterComponent } from './auth/register/register.component';
 
 export const routes: Routes = [
-    {
-        path: 'home',
-        component: HomeComponent
-    },
+   
     {
         path:'',
-        component: HomeComponent
-    },
-    {
-        path:'register',
-        component:RegisterComponent
-    },
-    {
-      path:'loginPage',
-      component:LoginComponent
-  },
-  {
-    path:'drugs',
-    component:DrugsComponent
-  },
-  {
-    path:'drug/:id'
-    ,
-    component:ItemDrugComponent
-   },
-  {
-    path:'doctors',
-    component:DoctorsComponent  
-  },
-  {
-    path:'doctor/:id'
-    ,
-    component:ItemDoctorComponent
-   },
-  {
-    path:'pharmacy',
-    component:PharmacyComponent
-  },
-  {
-    path:'pharmacy/:id'
-    ,
-    component:ItemPharmacyComponent
-   },
-    {
-        path:'panel',
         component:PanelComponent ,children:[
+          {
+            path: 'home',
+            component: HomeComponent
+        },
+        {
+            path:'register',
+            component:RegisterComponent
+        },
+        {
+          path:'register',
+          component:RegisterComponent
+      },
+        {
+          path:'loginPage',
+          component:LoginComponent
+      },
+      {
+        path:'drugs',
+        component:DrugsComponent
+      },
+      {
+        path:'drug/:id'
+        ,
+        component:ItemDrugComponent
+       },
+      {
+        path:'doctors',
+        component:DoctorsComponent  
+      },
+      {
+        path:'doctor/:id'
+        ,
+        component:ItemDoctorComponent
+       },
+      {
+        path:'pharmacy',
+        component:PharmacyComponent
+      },
+      {
+        path:'pharmacy/:id'
+        ,
+        component:ItemPharmacyComponent
+       },
            {
             path:'prescription'
             ,
