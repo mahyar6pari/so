@@ -32,7 +32,7 @@
 <div  class="container mt-12">
     <div class="row ">
       <div *ngFor="let item of drugList" class="col-lg-4 d-flex justify-content-around">
-        <div class="card  " [routerLink]="['/drug/',item.id]" >
+        <div class="card  " [routerLink]="['/drug/',item.Medicine_id]" >
             <img class="card-img-top" src={{item.image_url}} alt="Card image cap">
             <div class="card-body Text-align">
               <p class="card-text  ">  کد محصول : {{item.code}}</p>
