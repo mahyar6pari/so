@@ -26,7 +26,7 @@ export class DrugsComponent {
   drugList:any=[]
   getDrug(event?: any) {
     let data={
-      "name":event.target.value
+      "drug_name":event.target.value
     }
         this.panelService.searchMedicine(data).subscribe({
           next: ((data: any) => {
@@ -45,7 +45,7 @@ export class DrugsComponent {
     }
     getDrugbyname(event?: any) {
       let data={
-        "code":event.target.value
+        "ATTC_code":event.target.value
       }
           this.panelService.searchMedicine(data).subscribe({
             next: ((data: any) => {

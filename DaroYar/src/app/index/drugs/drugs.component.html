@@ -5,7 +5,7 @@
 </div>
 
 <div class="width">
-<div class="card card-xl-stretch form mt-0 w d-flex flex-row">
+<div class="card  form mt-0 w d-flex flex-row">
   <div class="card-body " >
     <div class="row">
             <div class="col-sm-12 " >
@@ -31,15 +31,31 @@
   
 <div  class="container mt-12">
     <div class="row ">
-      <div *ngFor="let item of drugList" class="col-lg-4 d-flex justify-content-around">
-        <div class="card  " [routerLink]="['/drug/',item.Medicine_id]" >
-            <img class="card-img-top" src={{item.image_url}} alt="Card image cap">
-            <div class="card-body Text-align">
-              <p class="card-text  ">  کد محصول : {{item.code}}</p>
-              <p class="card-text  ">شرکت تولید کنند   : {{item.company}}</p>
-              <p class="card-title text">نام محصول : {{item.name}} </p>
-             
-
+      <div *ngFor="let item of drugList" class="col-lg-12 d-flex flex-row justify-content-around">
+        <div class="card row  d-flex flex-row" [routerLink]="['/drug/',item.ATTC_code]" >
+            <div class="card-body  col-lg-6 Text-align">
+              <p class="card-text  text">  - کد دارو : {{item.ATTC_code}}</p>
+              <p class="card-text text"> - نام دارو : {{item.drug_name}} </p>
+            
+            </div>
+            <div class="card-body col-lg-6  Text-align ">
+              <p class="card-text  text"> - مقدار دارو :{{item.strengh}}</p>
+              <p class="card-text  text"> - طعم : {{item.salt}}</p>
+            </div>
+            <div class="card-body col-lg-6 Text-align">
+              <p class="card-text text ">  - شکل دارو : {{item.dosage_form}}</p>
+              <p class="card-text  text"> - روش مصرف :  {{item.route_of_use}}</p>
+            </div>
+            <div class="card-body col-lg-6 Text-align">
+              <p class="card-text  text">  - ترکیبات دارو : {{item.ingredient}}</p>
+              <p class="card-text  text"> - مصرف پزشکی  مجاز :  {{item.approved_clinical_indications}}</p>
+            </div>
+            <div class="card-body col-lg-6 Text-align">
+              <p class="card-text text ">  - ترکیبات دارو : {{item.access_level}}</p>
+              <p class="card-text  text">    - توضیحات :  {{item.remarks}}</p>
+            </div>
+            <div class="card-body col-lg-6 Text-align">
+              <p class="card-text  text">   - تاریخ : {{item.date}}</p>
             </div>
           </div>
       </div>

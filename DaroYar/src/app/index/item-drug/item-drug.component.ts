@@ -18,10 +18,12 @@ export class ItemDrugComponent {
   drugId:string=''
   constructor(){
     this.drugId =this.activatedRoute.snapshot.paramMap.get('id')!
+    console.log("drugId",this.drugId);
     this.getDrug(this.drugId)
   }
 
   getDrug(id:string){
+    console.log("id",id);
     this.panelService.getDrugById((id)).subscribe({
       next: (data: any) => {
         this.drug=data
@@ -29,6 +31,6 @@ export class ItemDrugComponent {
       error:(err) => {
 
       }
-    })
+    },)
   }
 }

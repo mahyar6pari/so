@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, inject, Renderer2 } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { AuthService } from '../auth/auth.service';
@@ -14,9 +14,10 @@ import { AuthService } from '../auth/auth.service';
 export class PanelComponent {
   public authService=inject(AuthService)
   user:any
-  constructor(){
+  constructor(private renderer: Renderer2){
     
   }
+
 
   logout(){
     this.authService.clearTokenLocalStorage()
