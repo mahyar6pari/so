@@ -1,6 +1,6 @@
 <div class="nav ">
     <div class="color m card-body">
-      <span><a routerLink="/home"   >دارویار</a><i class="bi bi-arrow-left color mr-2 ml-2"></i><a routerLink="/drugs"> دارو ها</a> <i class="bi bi-arrow-left color mr-2 ml-2"></i> {{drug.ATTC_code}}</span> 
+      <span><a routerLink="/home"   >دارویار</a><i class="bi bi-arrow-left color mr-2 ml-2"></i><a routerLink="/drugs"> دارو ها</a> <i class="bi bi-arrow-left color mr-2 ml-2"></i> {{this.drugId}}</span> 
     </div>
     </div>
 
@@ -11,11 +11,13 @@
       </div>
         <div class="card-body ">
           <div class=" card-body-title">
-          <h5 class="card-text"> {{drug.strengh}}</h5>
-          <p class="card-title"> کد محصول : {{drug.ATTC_code}} </p>
+         <!-- <h5 class="card-text"> {{drug.strengh}}</h5>
+          <p class="card-title"> کد محصول : {{drug.ATCC_code}} </p>
           <p class="card-title">نام محصول : {{drug.drug_name}} </p>
           <p class="card-title">توضیحات محصول : {{drug.description}} </p>
-        <p>{{drug.disc}}</p>
+        <p>{{drug.disc}}</p>-->
+        
+        <p class="card-title">{{drug[0]}} </p>
         </div>
         </div>
       </div>

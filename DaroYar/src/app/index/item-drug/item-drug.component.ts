@@ -26,6 +26,8 @@ export class ItemDrugComponent {
     console.log("id",id);
     this.panelService.getDrugById((id)).subscribe({
       next: (data: any) => {
+        console.log("data",data);
+        
         this.drug=data
       },
       error:(err) => {
