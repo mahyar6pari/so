@@ -4,20 +4,19 @@
     </div>
     </div>
 
-    <div class="d-flex justify-content-center align-items-center w">
-    <div class="card h-100">
-      <div class="card-img h-100 ">
-        <img class="card-img-top h-100" src={{drug.image_url}} alt="Card image cap">
+    <div class="d-flex  justify-content-center align-items-center w">
+    <div class="card h-100 flex-column">
+      <div class="card-img h-100 d-flex  justify-content-center align-items-center ">
+        <img class="card-img-top h-100" src={{image}} alt="Card image cap">
       </div>
         <div class="card-body ">
-          <div class=" card-body-title">
+          <div class=" card-body-title " *ngFor="let item of drug">
          <!-- <h5 class="card-text"> {{drug.strengh}}</h5>
           <p class="card-title"> کد محصول : {{drug.ATCC_code}} </p>
           <p class="card-title">نام محصول : {{drug.drug_name}} </p>
           <p class="card-title">توضیحات محصول : {{drug.description}} </p>
         <p>{{drug.disc}}</p>-->
-        
-        <p class="card-title">{{drug[0]}} </p>
+        <span class="card-title">{{item}} </span>
         </div>
         </div>
       </div>

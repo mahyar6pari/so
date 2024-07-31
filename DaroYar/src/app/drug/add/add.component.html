@@ -1,0 +1,150 @@
+<div class="card card-xl-stretch form mt-0">
+    <div class="card-header border-0">
+      <div class="card-title align-items-start flex-column font mt-3">
+        <span class="card-label   mb-1 mt-6">افزودن دارو</span>
+        <span class="text-muted mt-1 fw-bold fs-7"></span>
+      </div>
+    </div>
+    <form [formGroup]="drugForm">
+      <div class="card-body" >            
+          <div class="row">
+          <div class="col-lg-4 col-md-6 col-sm-12 mb-3" >
+            <!-- First Name -->
+            <div class="form-group">
+              <label class="form-label"> نام دارو</label>
+              <input type="text" formControlName="drug_name" class="form-control form-control-lg form-control-solid">
+              <div *ngIf="submitted && drugForm.controls['drug_name'].invalid" class="hint">
+                <div *ngIf="drugForm.get('drug_name')?.errors?.['required']">
+                  <span>پر کردن این فیلد اجباری است</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 col-sm-12 mb-3" >
+          <div class="form-group">
+            <label class="form-label"> کد دارو </label>
+            <input type="text" formControlName="ATCC_code" class="form-control form-control-lg form-control-solid">
+            <div *ngIf="submitted && drugForm.controls['ATCC_code'].invalid" class="hint">
+              <div *ngIf="drugForm.get('ATCC_code')?.errors?.['required']">
+                <span>پر کردن این فیلد اجباری است</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 mb-3" >
+        <div class="form-group">
+            <div class="form-label"> شکل دارو</div>
+            <input type="text" formControlName="dosag_form" class="form-control form-control-lg form-control-solid">
+            <div *ngIf="submitted && drugForm.controls['dosag_form'].invalid" class="hint">
+              <div *ngIf="drugForm.get('dosag_form')?.errors?.['required']">
+                <span>پر کردن این فیلد اجباری است</span>
+              </div>
+            </div>
+          </div>
+        </div>
+          
+        <div class="col-lg-4 col-md-6 col-sm-12 mb-3" >
+            <div class="form-group">
+                <div class="form-label">  مقدار دارو</div>
+                <input type="text" formControlName="strengh" class="form-control form-control-lg form-control-solid">
+                <div *ngIf="submitted && drugForm.controls['strengh'].invalid" class="hint">
+                  <div *ngIf="drugForm.get('strengh')?.errors?.['required']">
+                    <span>پر کردن این فیلد اجباری است</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12 mb-3" >
+                <div class="form-group">
+                    <div class="form-label"> روش مصرف</div>
+                    <input type="text" formControlName="route_of_use" class="form-control form-control-lg form-control-solid">
+                    <div *ngIf="submitted && drugForm.controls['route_of_use'].invalid" class="hint">
+                      <div *ngIf="drugForm.get('route_of_use')?.errors?.['required']">
+                        <span>پر کردن این فیلد اجباری است</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 mb-3" >
+                    <div class="form-group">
+                        <div class="form-label"> ترکیبات دارو</div>
+                        <input type="text" formControlName="ingredient" class="form-control form-control-lg form-control-solid">
+                        <div *ngIf="submitted && drugForm.controls['ingredient'].invalid" class="hint">
+                          <div *ngIf="drugForm.get('ingredient')?.errors?.['required']">
+                            <span>پر کردن این فیلد اجباری است</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 col-sm-12 mb-3" >
+                        <div class="form-group">
+                            <div class="form-label"> سطح دسترسی دارو</div>
+                            <input type="text" formControlName="access_level" class="form-control form-control-lg form-control-solid">
+                            <div *ngIf="submitted && drugForm.controls['access_level'].invalid" class="hint">
+                              <div *ngIf="drugForm.get('access_level')?.errors?.['required']">
+                                <span>پر کردن این فیلد اجباری است</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 col-sm-12 mb-3" >
+                            <div class="form-group">
+                                <div class="form-label"> توضیحات دارو</div>
+                                <input type="text" formControlName="remarks" class="form-control form-control-lg form-control-solid">
+                                <div *ngIf="submitted && drugForm.controls['remarks'].invalid" class="hint">
+                                  <div *ngIf="drugForm.get('remarks')?.errors?.['required']">
+                                    <span>پر کردن این فیلد اجباری است</span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-12 mb-3" >
+                                <div class="form-group">
+                                    <div class="form-label"> مصرف پزشکی مجاز</div>
+                                    <input type="text" formControlName="approved_clinical_indication" class="form-control form-control-lg form-control-solid">
+                                    <div *ngIf="submitted && drugForm.controls['approved_clinical_indication'].invalid" class="hint">
+                                      <div *ngIf="drugForm.get('approved_clinical_indication')?.errors?.['required']">
+                                        <span>پر کردن این فیلد اجباری است</span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6 col-sm-12 mb-3" >
+                                    <div class="form-group">
+                                        <div class="form-label"> طعم دارو</div>
+                                        <input type="text" formControlName="salt" class="form-control form-control-lg form-control-solid">
+                                        <div *ngIf="submitted && drugForm.controls['salt'].invalid" class="hint">
+                                          <div *ngIf="drugForm.get('salt')?.errors?.['required']">
+                                            <span>پر کردن این فیلد اجباری است</span>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+
+                            <div class="col-lg-4 col-12">
+                                <ng-persian-datepicker [dateGregorianFormat]="'YYYY-MM-DD'" calendar.gregorian.locale
+                                [dateInitValue]="false">
+                                <label class="form-label">تاریخ دارو</label>
+                                <input type="text" class="form-control form-control-lg form-control-solid" #date
+                                  [value]="(date.value | farsiNumber)" formControlName="date" placeholder="تاریخ دارو" />
+                              </ng-persian-datepicker>
+                                </div>
+                          
+        </div>
+        <div>
+        <button status class="col-md-4 col-lg-3 col-xl-2 btn btn-success mt-3" (click)="adddrug()">
+          ثبت اطلاعات
+          <i class="fa fa-spinner fa-pulse" *ngIf="isLoading"></i>
+        </button>
+        <button *ngIf="!status" class="col-md-4 col-lg-3 col-xl-2 btn btn-success mt-3" (click)="adddrug()">
+          ابدیت ادمین 
+          <i class="fa fa-spinner fa-pulse" *ngIf="isLoading"></i>
+        </button>
+      </div>
+      </div>
+    </form>
+  </div>
+
+  

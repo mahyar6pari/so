@@ -2,9 +2,10 @@ import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { NavbarComponent } from "../../navbar/navbar.component";
-import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { PanelService } from '../../panel.service';
 import { AuthService } from '../auth.service';
+import { TokenService } from '../token.service';
 
 @Component({
     selector: 'app-login',
@@ -16,33 +17,35 @@ import { AuthService } from '../auth.service';
 export class LoginComponent {
   formBuilder=inject(FormBuilder)
   panelService=inject(PanelService)
+  tokenService=inject(TokenService)
   authService=inject(AuthService)
   router=inject(Router)
 constructor(){
   this.createForm()
- 
+
+
+
+  
   
 }
   loginForm:any
   
   submit(){
+    console.log(this.loginForm.value);
+    
     this.panelService.login(this.loginForm.value).subscribe({
       next: (data: any) => {
-        if (data!='PasswordIsWrong' && data!='NotAccount') {
+          console.log(data);
           this.authService.setTokenLocalStorage(data as string)
           this.router.navigateByUrl('')
-        }
-        else if(data=='PasswordIsWrong'){
-          window.alert("Password Is Wrong")
-        }
-        else if(data=='NotAccount'){
-          window.alert("Not Account")
-        }
+          location.reload()
+       
       },
       error:(err) => {
       }
     })
 
+    
   }
 
   createForm(){

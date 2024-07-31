@@ -4,8 +4,8 @@
 
 export const environment = {
     production: false,
-    apiUrl: 'http://localhost:4444/api'
-
+  serverUrl: 'http://localhost:1111/api',
+//serverUrl: 'https://sarallah-zn.com/back/api/v1',
 };
 
 /*

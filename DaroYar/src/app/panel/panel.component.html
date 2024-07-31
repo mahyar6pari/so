@@ -5,7 +5,7 @@
   <div class="row">
     <div class="col-xs-12 col-sm-7 col-md-5 col-lg-4 col-xl-3  panel" style="z-index: 100;">
       <div class="menu-secton">
-        <div *ngIf="!authService.localstrongfull" class="menu-top-section">
+        <div *ngIf="token" class="menu-top-section">
           <div class="profile-summary-backdrop">
             <div class="profile-summary-pic">
          <!--    <img *ngIf="!user.profile_image_id" src="assets/media/avatars/blank.png" alt="">
@@ -17,11 +17,11 @@
             <ul>
               <li>
                 <span class="key">نام و نام خانوادگی</span>
-               <span class="val">{{user.firstname}}&nbsp;{{user.lastname}}</span>> 
+              <span class="val">{{token.firstname}}&nbsp;{{token.lastname}}</span>
               </li>
               <li class="lp-profile-summary-logout mt-2" (click)="logout()">
                 <span class="icon"><i class="fas fa-power-off"></i></span>
-                <span class="val">خروج</span>
+                <span  class="val">خروج</span>
               </li>
               <li>
                 <span class="key">تاریخ اخرین ورود</span>
@@ -33,45 +33,35 @@
         <div class="menu-bootom-section">
 
           <ul>
-            <li *ngIf="!authService.localstrongfull" class="nav-item">
-              <a class="nav-link collapsed" data-bs-toggle="collapse" href="#submenu1" role="button"
-                aria-expanded="false" aria-controls="submenu1">
-                <span>اطلاعات کاربری</span>
+
+            <li *ngIf="token.role=='pharmacits' || token.role=='admin'" class="nav-item">
+              <a class="nav-link collapsed" data-bs-toggle="collapse" href="#submenu4" role="button"
+                aria-expanded="false" aria-controls="submenu4">
+                <span>  دارو</span>
                 <i class="fas fa-caret-down left mt-3"></i>
               </a>
             </li>
-            <div *ngIf="!authService.localstrongfull" class="collapse" id="submenu1">
+            <div class="collapse" id="submenu4">
               <li [routerLinkActive]='["active"]'>
-                <a href="#" [routerLink]='["/dashboard/profile"]' class="nav-link nav-color ">
-                  <span>پروفایل کاربری </span>
+                <a href="#" [routerLink]='["drug/add"]' class="nav-link nav-color ">
+                  <span> افزودن  دارو </span>
                 </a>
               </li>
-              <li *ngIf="!authService.localstrongfull" class="nav-item" [routerLinkActive]='["active"]'>
-                <a href="#" [routerLink]='["/dashboard/reset-password"]' class="nav-link ">
-                  <span>تغییر گذرواژه</span>
+              <li class="nav-item" [routerLinkActive]='["active"]'>
+                <a href="#" [routerLink]='["drug/list"]' class="nav-link ">
+                  <span> لیست داروها </span>
                 </a>
               </li>
             </div>
-              <li *ngIf="!authService.localstrongfull" class="nav-item" [routerLinkActive]='["active"]'>
-                <a href="#" [routerLink]='["/dashboard/register"]' class="nav-link ">
-                  <span>   لیست دارو ها  </span>
-                </a>
-              </li>
-              
-              <li *ngIf="!authService.localstrongfull" class="nav-item">
-                <a class="nav-link collapsed" routerLink='/dashboard/profile'>
-                  <span> لیست پزشک ها</span>
-                  <i class="fas fa-caret-down left mt-3"></i>
-                </a>
-              </li>
-              <li *ngIf="authService.localstrongfull" class="nav-item">
+
+              <li *ngIf="!token" class="nav-item">
                 <a class="nav-link collapsed" data-bs-toggle="collapse" routerLink="loginPage" role="button"
                   aria-expanded="false" aria-controls="submenu3">
                   <span> ورود </span>
                   <i class="fas fa-caret-down left mt-3"></i>
                 </a>
               </li>
-              <li *ngIf="authService.localstrongfull" class="nav-item">
+              <li *ngIf="!token" class="nav-item">
                 <a class="nav-link collapsed" data-bs-toggle="collapse" routerLink="register" role="button"
                   aria-expanded="false" aria-controls="submenu3">
                   <span>    ثبت نام </span>
@@ -86,6 +76,8 @@
                 </a>
               </li>
               
+            
+
               <li class="nav-item">
                 <a class="nav-link collapsed" data-bs-toggle="collapse" routerLink="drugs" role="button"
                   aria-expanded="false" aria-controls="submenu3">
@@ -101,7 +93,7 @@
                 </a>
               </li>    
       
-              <li *ngIf="!authService.localstrongfull" class="nav-item">
+              <li  class="nav-item">
                 <a class="nav-link collapsed" data-bs-toggle="collapse" routerLink="prescription" role="button"
                   aria-expanded="false" aria-controls="submenu3">
                   <span> افزودن نسخه</span>

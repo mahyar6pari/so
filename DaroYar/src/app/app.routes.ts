@@ -11,6 +11,8 @@ import { ItemDoctorComponent } from './index/item-doctor/item-doctor.component';
 import { ItemPharmacyComponent } from './index/item-pharmacy/item-pharmacy.component';
 import { ItemDrugComponent } from './index/item-drug/item-drug.component';
 import { RegisterComponent } from './auth/register/register.component';
+import { AddComponent } from './drug/add/add.component';
+import { ListComponent } from './drug/list/list.component';
 
 export const routes: Routes = [
    
@@ -38,7 +40,7 @@ export const routes: Routes = [
         component:DrugsComponent
       },
       {
-        path:'drug/:id'
+        path:'drugs/:id'
         ,
         component:ItemDrugComponent
        },
@@ -64,7 +66,18 @@ export const routes: Routes = [
             path:'prescription'
             ,
             component:AddPrescriptionComponent
+           },
+           {
+           path:'drug/add'
+           ,
+           component:AddComponent
+          },
+          {
+            path:'drug/list'
+            ,
+            component:ListComponent
            }
+          
         ]
     },
 

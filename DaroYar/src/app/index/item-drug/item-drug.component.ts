@@ -16,10 +16,12 @@ export class ItemDrugComponent {
   //{id:2,name:'بسته 100 عددی سرسوزن قلم انسولین 6mm گیج 31',company:'سلامت',image_url:'https://st.drnext.ir/prod.drnext.cbc//storage/market/products/500/92ee880b-a696-4147-aeb0-4cab606cab09.png',}
   drug:any={}
   drugId:string=''
+  image:any
   constructor(){
     this.drugId =this.activatedRoute.snapshot.paramMap.get('id')!
     console.log("drugId",this.drugId);
     this.getDrug(this.drugId)
+    this.getimage(this.drugId)
   }
 
   getDrug(id:string){
@@ -29,6 +31,18 @@ export class ItemDrugComponent {
         console.log("data",data);
         
         this.drug=data
+      },
+      error:(err) => {
+
+      }
+    },)
+  }
+  getimage(id:any){
+    this.panelService.getimageById((id)).subscribe({
+      next: (data: any) => {
+        console.log("data",data);
+        
+        this.image=data
       },
       error:(err) => {
 

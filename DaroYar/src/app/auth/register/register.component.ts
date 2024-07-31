@@ -124,6 +124,7 @@ submitform(){
       role:['', Validators.required],
       PatientId:[''],
       type2: this.formBuilder.array([]),
+      bime:[]
     })
   }
   registerForm2:any

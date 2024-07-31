@@ -32,7 +32,7 @@
 <div  class="container mt-12">
     <div class="row ">
       <div *ngFor="let item of drugList" class="col-lg-12 d-flex flex-row justify-content-around">
-        <div class="card row  d-flex flex-row" [routerLink]="['/drug/',item.ATCC_code]" >
+        <div class="card row  d-flex flex-row" [routerLink]="['/drugs/',item.ATCC_code]" >
             <div class="card-body  col-lg-6 Text-align">
               <p class="card-text  text">  - کد دارو : {{item.ATCC_code}}</p>
               <p class="card-text text"> - نام دارو : {{item.drug_name}} </p>
@@ -51,7 +51,7 @@
               <p class="card-text  text"> - مصرف پزشکی  مجاز :  {{item.approved_clinical_indications}}</p>
             </div>
             <div class="card-body col-lg-6 Text-align">
-              <p class="card-text text ">  - ترکیبات دارو : {{item.access_level}}</p>
+              <p class="card-text text ">  -   سطح دسترسی دارو: {{item.access_level}}</p>
               <p class="card-text  text">    - توضیحات :  {{item.remarks}}</p>
             </div>
             <div class="card-body col-lg-6 Text-align">
