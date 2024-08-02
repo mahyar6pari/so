@@ -34,7 +34,10 @@ export class PharmacistComponent {
       code:[''],
       name:[''],
       mobile:[''],
+      codemeli:[''],
+      password:[''],
       role:['4']
+      
     })
   }
 }

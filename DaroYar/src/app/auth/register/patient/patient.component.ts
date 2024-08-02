@@ -16,10 +16,24 @@ export class PatientComponent {
   formBuilder=inject(FormBuilder)
   registerForm:any
   submitted:boolean=false
+  surance:any
   panelService=inject(PanelService)
   constructor(){
     this.createForm()
     this.addPatient()
+    this.getEnsurance()
+  }
+
+  getEnsurance(){
+    this.panelService.getensurance().subscribe({
+      next: (data: any) => {
+        console.log(data);
+        
+        this.surance=data
+      },
+      error:(err) => {
+      }
+    })
   }
   addPatient(){
     this.type2.push(this.formBuilder.group({
@@ -58,9 +72,8 @@ export class PatientComponent {
       password:['', Validators.required],
       address:['', Validators.required],
       role:['1', Validators.required],
-      PatientId:[''],
       type2: this.formBuilder.array([]),
-      bime:[]
+      ensurance:['']
     })
   }
 }

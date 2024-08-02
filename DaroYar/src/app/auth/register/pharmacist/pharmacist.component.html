@@ -35,7 +35,8 @@
                                     </div>
                                   </div>
                             </div>
-                                      <div class="col-lg-6 col-12 mb-3">
+                            <div class="row mb-3">
+                                      <div class="col-lg-6 col-12 ">
                                         <div class="form-group">
                                           <label class="form-label"> کد <span class="text-danger">*</span> </label>
                                           <input type="text" formControlName="code" class="form-control form-control-lg form-control-solid ">
@@ -46,10 +47,33 @@
                                           </div>
                                         </div>
                                       </div>
-                                   
+                                      <div class="col-lg-6 col-12">
+                                        <div class="form-group">
+                                          <label class="form-label"> رمز   <span class="text-danger">*</span> </label>
+                                          <input type="text" formControlName="password" class="form-control form-control-lg form-control-solid ">
+                                          <div class="hint">
+                                            <div *ngIf="submitted &&  companyForm.get('password')?.errors?.['required']">
+                                              <span>پر کردن این فیلد اجباری است</span>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
 
-
-
+                                      
+                            </div>
+                            <div class="row mb-3">
+                            <div class="col-lg-6 col-12">
+                              <div class="form-group">
+                                <label class="form-label"> کد ملی  <span class="text-danger">*</span> </label>
+                                <input type="text" formControlName="codemeli" class="form-control form-control-lg form-control-solid ">
+                                <div class="hint">
+                                  <div *ngIf="submitted &&  companyForm.get('codemeli')?.errors?.['required']">
+                                    <span>پر کردن این فیلد اجباری است</span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            </div>
                                     
                             <button data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-light btn-lg px-5"
                             type="button"  (click)="add()">ثبت</button>

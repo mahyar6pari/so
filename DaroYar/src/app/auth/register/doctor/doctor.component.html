@@ -137,6 +137,7 @@
             </div>
           </div>
                             
+          
                                       <div  class="col-lg-6 col-md-6 col-sm-12" >
                                         <!-- Gender -->
                                         <div class="form-group">
@@ -155,6 +156,17 @@
                                           </div>
                                           <div *ngIf="submitted && doctorForm.controls['gender'].invalid" class="hint">
                                             <div *ngIf="doctorForm.get('gender')?.errors?.['required']">
+                                              <span>پر کردن این فیلد اجباری است</span>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="col-lg-6 col-12">
+                                        <div class="form-group">
+                                          <label class="form-label"> کد ملی  <span class="text-danger">*</span> </label>
+                                          <input type="text" formControlName="codemeli" class="form-control form-control-lg form-control-solid ">
+                                          <div class="hint">
+                                            <div *ngIf="submitted &&  doctorForm.get('codemeli')?.errors?.['required']">
                                               <span>پر کردن این فیلد اجباری است</span>
                                             </div>
                                           </div>

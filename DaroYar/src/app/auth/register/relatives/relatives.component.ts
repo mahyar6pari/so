@@ -54,6 +54,9 @@ registerForm2:any
       role:['3', Validators.required],
       PatientId:[''],
       type: this.formBuilder.array([]),
+      password:[''],
+      codemeli:['']
+
     })
   }
 }

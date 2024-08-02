@@ -43,6 +43,7 @@ export class DoctorComponent {
       hospital:[''],
       gender:[''],
       birthday:[''],
+      codemeli:[''],
       role:['1']
     })
   }

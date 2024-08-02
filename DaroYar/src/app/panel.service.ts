@@ -57,4 +57,10 @@ getPharmacyById(id:any){
   deletdrug(ATCC_code:any){
     return this.http.delete(`http://localhost:1111/api/searchdoctors`+ATCC_code)
   }
+
+
+  /////bime////
+  getensurance(){
+    return this.http.get(`http://localhost:1111/api/enums/ensurance`)
+  }
   }
