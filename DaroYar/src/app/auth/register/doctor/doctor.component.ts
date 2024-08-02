@@ -44,7 +44,7 @@ export class DoctorComponent {
       gender:[''],
       birthday:[''],
       codemeli:[''],
-      role:['1']
+      role:['doctor']
     })
   }
 }

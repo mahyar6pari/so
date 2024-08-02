@@ -16,7 +16,7 @@ export class PatientComponent {
   formBuilder=inject(FormBuilder)
   registerForm:any
   submitted:boolean=false
-  surance:any
+  surance:any={}
   panelService=inject(PanelService)
   constructor(){
     this.createForm()
@@ -71,9 +71,10 @@ export class PatientComponent {
       birthday:['', Validators.required],
       password:['', Validators.required],
       address:['', Validators.required],
-      role:['1', Validators.required],
+      role:['patient', Validators.required],
+      ensurance:['', Validators.required],
       type2: this.formBuilder.array([]),
-      ensurance:['']
+     
     })
   }
 }

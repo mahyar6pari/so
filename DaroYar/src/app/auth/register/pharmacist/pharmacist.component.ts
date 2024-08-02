@@ -36,7 +36,7 @@ export class PharmacistComponent {
       mobile:[''],
       codemeli:[''],
       password:[''],
-      role:['4']
+      role:['pharmacist']
       
     })
   }

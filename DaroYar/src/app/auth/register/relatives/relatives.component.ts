@@ -51,7 +51,7 @@ registerForm2:any
       firstname:['', Validators.required],
       lastname:['', Validators.required],
       mobile:['', Validators.required],
-      role:['3', Validators.required],
+      role:['relatives', Validators.required],
       PatientId:[''],
       type: this.formBuilder.array([]),
       password:[''],

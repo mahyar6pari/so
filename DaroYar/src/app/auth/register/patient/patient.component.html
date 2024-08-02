@@ -134,7 +134,7 @@
                                     <div class="row mb-3">
                                     
 
-                                    <div    class="col-lg-6 col-12 margin-item mb-3" formArrayName="type2">
+                                    <div    class="col-lg-8 col-12 margin-item mb-3" formArrayName="type2">
                                       <div *ngFor="let item of type2.controls; let i = index; let first = first" id="item-container-{{i}}" class=" input-group mb-2">
                                         <div class="form-group input-group w-100">
                                           <div class=" input-group " [formGroupName]="i">
@@ -152,9 +152,10 @@
                                       </div>
                                     </div>
 
-                                    <div class="col-lg-6 col-12 mb-5" >
+                                    <div class="col-lg-4 col-12 mb-5" >
                                       <label class="form-label">     نوع بیمه   <span class="text-danger">*</span></label>
                                       <select    class="form-select form-select-lg form-select-solid"  formControlName="ensurance">
+                                        <option value=''>  انتخاب کنید </option>
                                         <option  value={{surance.SALAMAT}} >سلامت</option>
                                         <option value={{surance.TAMINEJTEMAI}}> تامین اجتماعی </option>
                                     </select>
