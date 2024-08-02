@@ -74,7 +74,7 @@ export class PatientComponent {
       role:['patient', Validators.required],
       ensurance:['', Validators.required],
       type2: this.formBuilder.array([]),
-     
+      mobile:['']
     })
   }
 }

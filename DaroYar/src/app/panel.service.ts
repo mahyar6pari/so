@@ -49,7 +49,7 @@ getPharmacyById(id:any){
 
   ///////drug/////
   adddrug(data:any){
-    return this.http.post(`http://localhost:1111/api/addmedicine`,data)
+    return this.genericHttpService.post(`/addmedicine`,data)
   }
   updatedrug(ATCC_code:any,data:any){
     return this.http.put(`http://localhost:1111/api/deletemedicine/`+ATCC_code,data)

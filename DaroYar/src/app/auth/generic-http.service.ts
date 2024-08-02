@@ -29,6 +29,7 @@ export class GenericHttpService {
   post<T>(url: string, data: any, headers?: any): Observable<Object> {
     if (headers == null) {
       headers = new HttpHeaders({ 'Authorization': this.authService.getTokenLocalStorage() as string });
+      
     }
     if (headers == 'undefined') {
       return this.httpClient.post(this.appRoot + url, data);
