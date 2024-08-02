@@ -20,8 +20,12 @@ export class PanelComponent {
   public token:any
   constructor(private renderer: Renderer2){
     this.token=this.tokenService.token()
+    console.log(this.token);
+    
   }
+  getFile(){
 
+  }
 
   logout(){
     this.authService.clearTokenLocalStorage()

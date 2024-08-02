@@ -8,14 +8,13 @@
         <div *ngIf="token" class="menu-top-section">
           <div class="profile-summary-backdrop">
             <div class="profile-summary-pic">
-         <!--    <img *ngIf="!user.profile_image_id" src="assets/media/avatars/blank.png" alt="">
-              <img *ngIf="user.profile_image_id" [src]="getFile(user.profile_image_id)" alt="">-->
+              <img  src={{token.image_url}} alt="">
             </div>
 
           </div>
           <div class="profile-summary-item-container">
             <ul>
-              <li>
+              <li >
                 <span class="key">نام و نام خانوادگی</span>
               <span class="val">{{token.firstname}}&nbsp;{{token.lastname}}</span>
               </li>
