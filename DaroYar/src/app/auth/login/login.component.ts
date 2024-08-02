@@ -35,10 +35,13 @@ constructor(){
     
     this.panelService.login(this.loginForm.value).subscribe({
       next: (data: any) => {
+        if (data) {
           console.log(data);
           this.authService.setTokenLocalStorage(data as string)
-          this.router.navigateByUrl('')
           location.reload()
+        }
+          
+  
        
       },
       error:(err) => {

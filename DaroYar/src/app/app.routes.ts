@@ -13,6 +13,10 @@ import { ItemDrugComponent } from './index/item-drug/item-drug.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { AddComponent } from './drug/add/add.component';
 import { ListComponent } from './drug/list/list.component';
+import { PatientComponent } from './auth/register/patient/patient.component';
+import { RelativesComponent } from './auth/register/relatives/relatives.component';
+import { PharmacistComponent } from './auth/register/pharmacist/pharmacist.component';
+import { DoctorComponent } from './auth/register/doctor/doctor.component';
 
 export const routes: Routes = [
    
@@ -28,8 +32,20 @@ export const routes: Routes = [
             component:RegisterComponent
         },
         {
-          path:'register/:id',
-          component:RegisterComponent
+          path:'register/3',
+          component:RelativesComponent
+      },
+      {
+        path:'register/4',
+        component:PharmacistComponent
+    },
+    {
+      path:'register/1',
+      component:DoctorComponent
+  },
+        {
+          path:'register/2',
+          component:PatientComponent
       },
         {
           path:'loginPage',
