@@ -33,7 +33,8 @@ export class PharmacistComponent {
     this.companyForm=this.formBulder.group({
       code:[''],
       name:[''],
-      firstname:[''],
+      mobile:[''],
+      role:['4']
     })
   }
 }

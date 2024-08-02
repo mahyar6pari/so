@@ -35,9 +35,9 @@ constructor(){
     
     this.panelService.login(this.loginForm.value).subscribe({
       next: (data: any) => {
-        if (data) {
+        if (data.token) {
           console.log(data);
-          this.authService.setTokenLocalStorage(data as string)
+          this.authService.setTokenLocalStorage(data.token as string)
           location.reload()
         }
           
