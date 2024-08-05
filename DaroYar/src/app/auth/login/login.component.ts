@@ -29,7 +29,11 @@ constructor(){
   
 }
   loginForm:any
-  
+  id:any=''
+
+  checkValue2(event:any) {
+    this.id=event.target.value
+  }
   submit(){
     console.log(this.loginForm.value);
     
@@ -55,6 +59,7 @@ constructor(){
     this.loginForm=this.formBuilder.group({
       codemeli:[''],
       password:[''],
+      role:['']
     })
   }
   

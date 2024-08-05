@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PanelService } from '../../../panel.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pharmacist',
@@ -15,6 +16,7 @@ export class PharmacistComponent {
   panelService=inject(PanelService)
   companyForm:any
   submitted:boolean=false
+  router=inject(Router)
   constructor(){
     this.createForm()
   }
@@ -22,6 +24,7 @@ export class PharmacistComponent {
   add(){
     this.panelService.register(this.companyForm.value).subscribe({
       next: (data: any) => {
+        this.router.navigateByUrl('loginPage')
       },
       error:(err) => {
       }

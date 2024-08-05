@@ -4,6 +4,7 @@ import { FormArray, FormBuilder, FormsModule, ReactiveFormsModule, Validators } 
 import { NgPersianDatepickerModule } from 'ng-persian-datepicker';
 import { FarsiNumberPipe } from '../../../@shared/pipe/farsiNumber/farsi-number.pipe';
 import { PanelService } from '../../../panel.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-relatives',
@@ -16,6 +17,7 @@ export class RelativesComponent {
   formBuilder=inject(FormBuilder)
   panelService=inject(PanelService)
   submitted:boolean=false
+  router=inject(Router)
 constructor(){
   this.createForm2()
   this.addId()
@@ -26,6 +28,7 @@ submitfa(){
   
   this.panelService.register(this.registerForm2.value).subscribe({
     next: (data: any) => {
+      this.router.navigateByUrl('loginPage')
     },
     error:(err) => {
     }

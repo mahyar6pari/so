@@ -4,6 +4,7 @@ import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgPersianDatepickerModule } from 'ng-persian-datepicker';
 import { FarsiNumberPipe } from "../../../@shared/pipe/farsiNumber/farsi-number.pipe";
 import { PanelService } from '../../../panel.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-doctor',
@@ -17,6 +18,7 @@ export class DoctorComponent {
   panelService=inject(PanelService)
   doctorForm:any
   submitted:boolean=false
+  router=inject(Router)
   constructor(){
     this.createForm()
   }
@@ -24,6 +26,7 @@ export class DoctorComponent {
   add(){
     this.panelService.register(this.doctorForm.value).subscribe({
       next: (data: any) => {
+        this.router.navigateByUrl('loginPage')
       },
       error:(err) => {
       }

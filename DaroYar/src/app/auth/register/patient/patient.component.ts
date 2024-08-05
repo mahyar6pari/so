@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormArray, FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { NgPersianDatepickerModule } from 'ng-persian-datepicker';
 import { PanelService } from '../../../panel.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-patient',
@@ -17,6 +18,7 @@ export class PatientComponent {
   registerForm:any
   submitted:boolean=false
   surance:any={}
+  router=inject(Router)
   panelService=inject(PanelService)
   constructor(){
     this.createForm()
@@ -52,6 +54,7 @@ export class PatientComponent {
     
     this.panelService.register(this.registerForm.value).subscribe({
       next: (data: any) => {
+        this.router.navigateByUrl('loginPage')
       },
       error:(err) => {
       }

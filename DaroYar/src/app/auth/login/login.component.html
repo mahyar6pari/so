@@ -1,30 +1,61 @@
-<section class="width gradient-custom">
-    <div class="container h-100">
-        <div class="row d-flex justify-content-center align-items-center h-100">
-            <div class="col-12 col-md-8 col-lg-6 col-xl-7">
-                <div class="card bg-white " style="border-radius: 1rem;">
-                    <div class="card-body p-5 text-center">
 
-                        <div class="mb-md-5 mt-md-4 log pb-5">
-                        <form [formGroup]="loginForm">
-                            <h2 class="fw-bold mb-2 text-uppercase">ورود</h2>
-                            <p class=" mb-5">اطلاعات خود را وارد کنید </p>
-
-                            <div data-mdb-input-init class="form-outline form-white mb-4">
-                                <input id="phoneNumber" formControlName="codemeli" class="form-control form-control-lg" />
-                                <label class="form-label" for="typeEmailX"> کد ملی</label>
-                            </div>
-
-                            <div data-mdb-input-init class="form-outline form-white mb-4">
-                                <input id="NationalId" formControlName="password" class="form-control  form-control-lg bg-light" />
-                                <label class="form-label" for="typePasswordX"> رمز ورود</label>
-                            </div>
-
-                            <button data-mdb-button-init data-mdb-ripple-init class="btn  btn-lg px-5"
-                            type="button"  (click)="submit()">ورود</button>
-                        </form>
+    <div class="container  h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col col-xl-10">
+          <div class="card" style="border-radius: 1rem;">
+            <div class="row g-0">
+             
+              <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                <div class="card-body p-4 p-lg-5 text-black">
+  
+                  <form [formGroup]="loginForm">
+  
+                    <div class="d-flex align-items-center mb-3 pb-1">
+                 
+                      <span class="h5 fw-bold mb-0">ورود</span>
                     </div>
+  
+                
+  
+                    <div data-mdb-input-init class="form-outline mb-4">
+                      <input formControlName="codemeli" type="txt" id="form2Example17" class="form-control form-control-lg" />
+                      <label class="form-label" for="form2Example17">کد ملی </label>
+                    </div>
+  
+                    <div data-mdb-input-init class="form-outline mb-4">
+                      <input formControlName="password" type="password" id="form2Example27" class="form-control form-control-lg" />
+                      <label class="form-label" for="form2Example27">رمز</label>
+                    </div>
+                    <div class="d-flex flex-row justify-content-between col-12">
+                    <div class="pt-1">
+                      <button data-mdb-button-init data-mdb-ripple-init class="btn btn-dark btn-lg btn-block" type="button" (click)="submit()">ثبت</button>
+                    </div>
+   
+                        <div class="col-lg-5 col-12 " >
+                          <select  formControlName="role"  class="form-select form-select-lg form-select-solid" >
+                            <option  value="" >انتخاب کنید</option>
+                            <option  value="doctor" >پزشک</option>
+                            <option value="patient"> بیمار</option>
+                            <option  value="relatives" >اعضای خانواده بیمار</option>
+                            <option value="pharmacist">شرکت دارویی </option>
+                        </select>
+
+                    </div>
+                
                 </div>
+  
+            
+                  </form>
+  
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-5 d-none d-md-block">
+                <div 
+                  alt="login form" class="img-fluid  image-login" style="border-radius: 1rem 0 0 1rem;" >
+                </div>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </div>

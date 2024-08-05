@@ -17,12 +17,14 @@ import { PatientComponent } from './auth/register/patient/patient.component';
 import { RelativesComponent } from './auth/register/relatives/relatives.component';
 import { PharmacistComponent } from './auth/register/pharmacist/pharmacist.component';
 import { DoctorComponent } from './auth/register/doctor/doctor.component';
+import { ProfileComponent } from './profile/profile.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 export const routes: Routes = [
    
     {
         path:'',
-        component:PanelComponent ,children:[
+        component:NavbarComponent ,children:[
           {
             path: 'home',
             component: HomeComponent
@@ -92,8 +94,12 @@ export const routes: Routes = [
             path:'drug/list'
             ,
             component:ListComponent
+           },
+           {
+            path:'profile'
+            ,
+            component:ProfileComponent
            }
-          
         ]
     },
 
