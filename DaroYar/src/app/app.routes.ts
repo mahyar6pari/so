@@ -19,6 +19,7 @@ import { PharmacistComponent } from './auth/register/pharmacist/pharmacist.compo
 import { DoctorComponent } from './auth/register/doctor/doctor.component';
 import { ProfileComponent } from './profile/profile.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { LComponent } from './l/l.component';
 
 export const routes: Routes = [
    
@@ -55,7 +56,7 @@ export const routes: Routes = [
       },
       {
         path:'drugs',
-        component:DrugsComponent
+        component:LComponent
       },
       {
         path:'drugs/:id'

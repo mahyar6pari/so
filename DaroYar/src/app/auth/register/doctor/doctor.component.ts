@@ -24,7 +24,7 @@ export class DoctorComponent {
   }
 
   add(){
-    this.panelService.register(this.doctorForm.value).subscribe({
+    this.panelService.registerdoctor(this.doctorForm.value).subscribe({
       next: (data: any) => {
         this.router.navigateByUrl('loginPage')
       },

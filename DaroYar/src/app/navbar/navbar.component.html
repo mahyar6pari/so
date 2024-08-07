@@ -2,7 +2,7 @@
 <div class=" panelContainer mt-12">
 <div class="conrainerCustomBottomHeade">
 <div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4   panel" style="z-index: 100;">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-2   panel" style="z-index: 100;">
 
     <div class="menu-secton">
       <div *ngIf="token" class="menu-top-section">
@@ -65,20 +65,27 @@
             </a>
           </li>
         
-          <li [class.active]="selectedItem === 4" (click)="selectItem(4)" class="nav-item">
-            <a class="nav-link collapsed" routerLink="doctors" role="button">
+          <li  [class.active]="selectedItem === 4" (click)="selectItem(4)" class="nav-item right bottom" >
+            <a class="nav-link collapsed " routerLink="doctors" role="button">
               <span> <i class="fa fa-user-md"></i> پزشک ها </span>
              
             </a>
           </li>
         
           <li [class.active]="selectedItem === 5" (click)="selectItem(5)" class="nav-item">
+            <div class="wq">
             <a class="nav-link collapsed" routerLink="drugs" role="button">
               <span> <i class="fa fa-medkit"></i> داروها</span>
-
             </a>
+          </div>
           </li>
-        
+          <li *ngIf="token.role=='doctor' || token.role=='admin' || token.role=='relatives' || token.role=='patient' || token.role=='company' " [class.active]="selectedItem === 9" (click)="selectItem(9)" class="nav-item">
+            <div class="wq">
+            <a class="nav-link collapsed" routerLink="profile" role="button">
+              <span> <i class="fa fa-medkit"></i> پروفایل</span>
+            </a>
+          </div>
+          </li>
           <li [class.active]="selectedItem === 6" (click)="selectItem(6)" class="nav-item">
             <a class="nav-link collapsed" routerLink="pharmacy" role="button">
               <span> <i class="fa fa-ambulance"></i> شرکت های داروسازی</span>

@@ -11,8 +11,17 @@ import { GenericHttpService } from "./auth/generic-http.service";
     login(data:any) {
         return this.http.post(`http://localhost:1111/api/auth/login`,data)
     }
-    register(data:any) {
-      return this.http.post(`http://localhost:1111/api/auth/register`,data)
+    registerpatient(data:any) {
+      return this.http.post(`http://localhost:1111/api/auth/registerpatient`,data)
+  }
+    registerdoctor(data:any) {
+      return this.http.post(`http://localhost:1111/api/auth/registerdoctor`,data)
+  }
+    registercompany(data:any) {
+      return this.http.post(`http://localhost:1111/api/auth/registercompany`,data)
+  }
+    registerrelatives(data:any) {
+     return this.http.post(`http://localhost:1111/api/auth/registerrelatives`,data)
   }
 
 

@@ -15,49 +15,51 @@
                                 <div class="col-lg-6 col-12">
                                   <div class="form-group">
                                     <label class="form-label"> نام <span class="text-danger">*</span> </label>
-                                    <input type="text" formControlName="name" class="form-control form-control-lg form-control-solid ">
+                                    <input type="text" formControlName="firstname" class="form-control form-control-lg form-control-solid ">
                                     <div class="hint">
-                                      <div *ngIf="submitted &&  companyForm.get('name')?.errors?.['required']">
+                                      <div *ngIf="submitted &&  companyForm.get('firstname')?.errors?.['required']">
                                         <span>پر کردن این فیلد اجباری است</span>
                                       </div>
                                     </div>
                                   </div>
                                 </div>
                                 <div class="col-lg-6 col-12">
-                                    <div class="form-group">
-                                      <label class="form-label"> تلفن <span class="text-danger">*</span> </label>
-                                      <input type="text" formControlName="mobile" class="form-control form-control-lg form-control-solid ">
-                                      <div class="hint">
-                                        <div *ngIf="submitted &&  companyForm.get('mobile')?.errors?.['required']">
-                                          <span>پر کردن این فیلد اجباری است</span>
-                                        </div>
+                                  <div class="form-group">
+                                    <label class="form-label"> نام خانوادگی <span class="text-danger">*</span> </label>
+                                    <input type="text" formControlName="lastname" class="form-control form-control-lg form-control-solid ">
+                                    <div class="hint">
+                                      <div *ngIf="submitted &&  companyForm.get('lastname')?.errors?.['required']">
+                                        <span>پر کردن این فیلد اجباری است</span>
                                       </div>
                                     </div>
                                   </div>
+                                </div>
+                    
                             </div>
                             <div class="row mb-3">
+                              <div class="col-lg-6 col-12">
+                                <div class="form-group">
+                                  <label class="form-label"> تلفن <span class="text-danger">*</span> </label>
+                                  <input type="text" formControlName="mobile" class="form-control form-control-lg form-control-solid ">
+                                  <div class="hint">
+                                    <div *ngIf="submitted &&  companyForm.get('mobile')?.errors?.['required']">
+                                      <span>پر کردن این فیلد اجباری است</span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
                                       <div class="col-lg-6 col-12 ">
                                         <div class="form-group">
                                           <label class="form-label"> ثبت شرکت <span class="text-danger">*</span> </label>
-                                          <input type="text" formControlName="code" class="form-control form-control-lg form-control-solid ">
+                                          <input type="text" formControlName="license_code" class="form-control form-control-lg form-control-solid ">
                                           <div class="hint">
-                                            <div *ngIf="submitted &&  companyForm.get('code')?.errors?.['required']">
+                                            <div *ngIf="submitted &&  companyForm.get('license_code')?.errors?.['required']">
                                               <span>پر کردن این فیلد اجباری است</span>
                                             </div>
                                           </div>
                                         </div>
                                       </div>
-                                      <div class="col-lg-6 col-12">
-                                        <div class="form-group">
-                                          <label class="form-label"> رمز   <span class="text-danger">*</span> </label>
-                                          <input type="text" formControlName="password" class="form-control form-control-lg form-control-solid ">
-                                          <div class="hint">
-                                            <div *ngIf="submitted &&  companyForm.get('password')?.errors?.['required']">
-                                              <span>پر کردن این فیلد اجباری است</span>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
+                                      
 
                                       
                             </div>
@@ -68,6 +70,17 @@
                                 <input type="text" formControlName="codemeli" class="form-control form-control-lg form-control-solid ">
                                 <div class="hint">
                                   <div *ngIf="submitted &&  companyForm.get('codemeli')?.errors?.['required']">
+                                    <span>پر کردن این فیلد اجباری است</span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-lg-6 col-12">
+                              <div class="form-group">
+                                <label class="form-label"> رمز   <span class="text-danger">*</span> </label>
+                                <input type="text" formControlName="password" class="form-control form-control-lg form-control-solid ">
+                                <div class="hint">
+                                  <div *ngIf="submitted &&  companyForm.get('password')?.errors?.['required']">
                                     <span>پر کردن این فیلد اجباری است</span>
                                   </div>
                                 </div>

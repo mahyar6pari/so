@@ -10,7 +10,7 @@
   
                   <form [formGroup]="loginForm">
   
-                    <div class="d-flex align-items-center mb-3 pb-1">
+                    <div class="d-flex justify-content-center mb-3 pb-1">
                  
                       <span class="h5 fw-bold mb-0">ورود</span>
                     </div>
@@ -18,29 +18,31 @@
                 
   
                     <div data-mdb-input-init class="form-outline mb-4">
+                      <label class="form-label"> کدملی   <span class="text-danger">*</span> </label>
                       <input formControlName="codemeli" type="txt" id="form2Example17" class="form-control form-control-lg" />
-                      <label class="form-label" for="form2Example17">کد ملی </label>
                     </div>
   
                     <div data-mdb-input-init class="form-outline mb-4">
+                      <label class="form-label"> رمز ورود <span class="text-danger">*</span> </label>
                       <input formControlName="password" type="password" id="form2Example27" class="form-control form-control-lg" />
-                      <label class="form-label" for="form2Example27">رمز</label>
                     </div>
-                    <div class="d-flex flex-row justify-content-between col-12">
+                    <div class="col-lg-5 col-12  margin" >
+                      <label class="form-label"> لطفا حالت را انتخاب کنید   <span class="text-danger">*</span> </label>
+                      <select  formControlName="role"  class="form-select form-select-lg form-select-solid" >
+                        <option  value="" >انتخاب کنید</option>
+                        <option  value="doctor" >پزشک</option>
+                        <option value="patient"> بیمار</option>
+                        <option  value="relatives" >اعضای خانواده بیمار</option>
+                        <option value="company">شرکت دارویی </option>
+                    </select>
+
+                </div>
+                    <div class="d-flex justify-content-center  col-12">
                     <div class="pt-1">
-                      <button data-mdb-button-init data-mdb-ripple-init class="btn btn-dark btn-lg btn-block" type="button" (click)="submit()">ثبت</button>
+                      <button data-mdb-button-init data-mdb-ripple-init class="btn btn-dark btn-lg btn-block" [disabled]="loginForm.invalid" type="button" (click)="submit()">ثبت</button>
                     </div>
    
-                        <div class="col-lg-5 col-12 " >
-                          <select  formControlName="role"  class="form-select form-select-lg form-select-solid" >
-                            <option  value="" >انتخاب کنید</option>
-                            <option  value="doctor" >پزشک</option>
-                            <option value="patient"> بیمار</option>
-                            <option  value="relatives" >اعضای خانواده بیمار</option>
-                            <option value="pharmacist">شرکت دارویی </option>
-                        </select>
-
-                    </div>
+             
                 
                 </div>
   

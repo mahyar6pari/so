@@ -52,7 +52,7 @@ export class PatientComponent {
   add(){
     console.log(this.registerForm.value);
     
-    this.panelService.register(this.registerForm.value).subscribe({
+    this.panelService.registerpatient(this.registerForm.value).subscribe({
       next: (data: any) => {
         this.router.navigateByUrl('loginPage')
       },

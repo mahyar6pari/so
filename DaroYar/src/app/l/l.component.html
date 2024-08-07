@@ -1,0 +1,84 @@
+<!-- begin::Header -->
+<div class="card card-xl-stretch mb-5 mb-xl-8">
+    <div class="card-header border-0 pt-5">
+      <h3 class="card-title align-items-start flex-column">
+        <span class="card-label fw-bolder fs-3 mb-1">لیست کاربران </span>
+        <span class="text-muted mt-1 fw-bold fs-7"></span>
+      </h3>
+  
+    </div>
+    <!-- end::Header -->
+    <!-- begin::Body -->
+    <div class="card-body py-3">
+      <!-- begin::Table container -->
+  
+  
+  
+  
+      <div class="row ">
+     
+  
+        <div class="col-lg-3 col-12">
+          <label class="form-label">موبایل کاربر</label>
+          <input type="text" (keyup)="getDrug($event)"
+            class="form-control form-control-lg form-control-solid ">
+        </div>
+      </div>
+      <div class="table-responsive mt-5">
+        <!-- begin::Table -->
+        <table class="table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4">
+          <!-- begin::Table head -->
+          <thead>
+  
+            <tr class="fw-bolder text-muted">
+              <th class="w-25px">
+                #
+              </th>
+              <th>نام دارو</th>
+              <th>طعم دارو</th>
+              <th>شکل دارو</th>
+              <th>روش مصرف</th>
+              <th>ترکیبات دارو</th>
+              <th>مقدار دارو</th>
+  
+            </tr>
+          </thead>
+          <!-- end::Table head -->
+          <!-- begin::Table body -->
+          <tbody>
+            <tr *ngFor="let item of drugList; let i = index">
+              <td>
+                {{ (i+1)+(10*pageForIndex) }}
+              </td>
+
+              <td>
+                {{ item.drug_name }}
+              </td>
+              <td>
+                {{ item.drug_name }}
+              </td>
+              <td>
+                {{ item.drug_name }}
+              </td>
+  
+            </tr>
+  
+          </tbody>
+          <!-- end::Table body -->
+        </table>
+        <!-- end::Table -->
+      </div>
+      <!-- end::Table container -->
+      <div class="row">
+        <div class="col-12">
+          <span class="d-inline-block">تعداد کل:‌ {{totalCount | farsiNumber}}</span>
+          <ngb-pagination (pageChange)="listdrug($event)" [collectionSize]="totalCount"
+            [(page)]="page" [pageSize]="countItemPerPage" [maxSize]="5" [rotate]="true"
+            [boundaryLinks]="true"></ngb-pagination>
+        </div>
+      </div>
+    </div>
+    <!-- begin::Body -->
+  
+  </div>
+  

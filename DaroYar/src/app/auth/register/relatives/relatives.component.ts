@@ -26,7 +26,7 @@ constructor(){
 submitfa(){
   console.log(this.registerForm2.value);
   
-  this.panelService.register(this.registerForm2.value).subscribe({
+  this.panelService.registerrelatives(this.registerForm2.value).subscribe({
     next: (data: any) => {
       this.router.navigateByUrl('loginPage')
     },
@@ -55,7 +55,7 @@ registerForm2:any
       lastname:['', Validators.required],
       mobile:['', Validators.required],
       role:['relatives', Validators.required],
-      PatientId:[''],
+      user_id:[''],
       type: this.formBuilder.array([]),
       password:[''],
       codemeli:['']

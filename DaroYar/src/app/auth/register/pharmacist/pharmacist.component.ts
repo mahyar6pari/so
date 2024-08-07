@@ -22,7 +22,7 @@ export class PharmacistComponent {
   }
 
   add(){
-    this.panelService.register(this.companyForm.value).subscribe({
+    this.panelService.registercompany(this.companyForm.value).subscribe({
       next: (data: any) => {
         this.router.navigateByUrl('loginPage')
       },
@@ -34,12 +34,13 @@ export class PharmacistComponent {
 
   createForm(){
     this.companyForm=this.formBulder.group({
-      code:[''],
-      name:[''],
+      license_code:[''],
+      firstname:[''],
+      lastname:[''],
       mobile:[''],
       codemeli:[''],
       password:[''],
-      role:['pharmacist']
+      role:['company']
       
     })
   }

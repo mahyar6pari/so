@@ -1,11 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { ChangeDetectorRef, Component, inject } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { NavbarComponent } from "../../navbar/navbar.component";
-import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { PanelService } from '../../panel.service';
 import { AuthService } from '../auth.service';
 import { TokenService } from '../token.service';
+import { ToastService } from '../../@shared/service/toast/toast.service';
 
 @Component({
     selector: 'app-login',
@@ -20,7 +21,9 @@ export class LoginComponent {
   tokenService=inject(TokenService)
   authService=inject(AuthService)
   router=inject(Router)
-constructor(){
+  toastService=inject(ToastService)
+ 
+constructor( private cdr: ChangeDetectorRef){
   this.createForm()
 
 
@@ -43,23 +46,25 @@ constructor(){
           console.log(data);
           this.authService.setTokenLocalStorage(data.token as string)
           location.reload()
+          this.cdr.detectChanges()
         }
           
   
        
       },
       error:(err) => {
+        console.log("sssss",err.error.error);
+        this.cdr.detectChanges()
+        this.toastService.error(err.error.error)
       }
     })
-
-    
   }
 
   createForm(){
     this.loginForm=this.formBuilder.group({
-      codemeli:[''],
-      password:[''],
-      role:['']
+      codemeli:['', Validators.required],
+      password:['',Validators.required],
+      role:['',Validators.required]
     })
   }
   
