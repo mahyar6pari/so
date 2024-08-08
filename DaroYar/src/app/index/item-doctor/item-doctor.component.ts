@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { PanelService } from '../../panel.service';
+import { ToastService } from '../../@shared/service/toast/toast.service';
 
 @Component({
   selector: 'app-item-doctor',
@@ -12,6 +13,7 @@ import { PanelService } from '../../panel.service';
 })
 export class ItemDoctorComponent {
   activatedRoute=inject(ActivatedRoute)
+  toastService=inject(ToastService)
   panelService=inject(PanelService)
   //{firstname:'علی',lastname:'شش پری',city:'تهران',address:'تهران - تهران، خیابان شریعتی، بالاتر از میرداماد، کوچه فلسفی، پلاک 5، ساختمان پرشین، طبقه 5 ( پایین تر از ایستگاه مترو دکتر شریعتی)',hospital:'پاستور',gender:'مرد',image_url:'https://statics.doctoreto.com/preset:sharp/resize:fill:180:180:0/gravity:sm/plain/s3://drto/avatar/doctor/2021/11/NmyZYRf2dK3rtj8UAk2ZA7EhxUM9QwBB87YKYJky.jpg'}
   doctor:any={}
@@ -27,7 +29,7 @@ export class ItemDoctorComponent {
         this.doctor=data
       },
       error:(err) => {
-
+        this.toastService.error(err.error.message)
       }
     })
   }

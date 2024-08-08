@@ -6,7 +6,7 @@ import { NgbToastModule } from '@deliverysolutions/ng-bootstrap';
 @Component({
   selector: 'app-toast',
   standalone: true,
-  imports: [CommonModule, NgbToastModule],
+  imports: [CommonModule,NgbToastModule],
   templateUrl: './toast.component.html',
   styleUrl: './toast.component.scss'
 })

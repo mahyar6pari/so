@@ -3,6 +3,7 @@ import { Component, inject } from '@angular/core';
 import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PanelService } from '../../../panel.service';
 import { Router } from '@angular/router';
+import { ToastService } from '../../../@shared/service/toast/toast.service';
 
 @Component({
   selector: 'app-pharmacist',
@@ -14,6 +15,7 @@ import { Router } from '@angular/router';
 export class PharmacistComponent {
   formBulder=inject(FormBuilder)
   panelService=inject(PanelService)
+  toastService=inject(ToastService)
   companyForm:any
   submitted:boolean=false
   router=inject(Router)
@@ -27,6 +29,7 @@ export class PharmacistComponent {
         this.router.navigateByUrl('loginPage')
       },
       error:(err) => {
+        this.toastService.error(err.error.message)
       }
     })
     console.log(this.companyForm);

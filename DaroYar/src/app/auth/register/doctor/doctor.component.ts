@@ -5,6 +5,7 @@ import { NgPersianDatepickerModule } from 'ng-persian-datepicker';
 import { FarsiNumberPipe } from "../../../@shared/pipe/farsiNumber/farsi-number.pipe";
 import { PanelService } from '../../../panel.service';
 import { Router } from '@angular/router';
+import { ToastService } from '../../../@shared/service/toast/toast.service';
 
 @Component({
   selector: 'app-doctor',
@@ -19,6 +20,7 @@ export class DoctorComponent {
   doctorForm:any
   submitted:boolean=false
   router=inject(Router)
+  toastService=inject(ToastService)
   constructor(){
     this.createForm()
   }
@@ -29,6 +31,7 @@ export class DoctorComponent {
         this.router.navigateByUrl('loginPage')
       },
       error:(err) => {
+        this.toastService.error(err.error.message)
       }
     })
     console.log(this.doctorForm);

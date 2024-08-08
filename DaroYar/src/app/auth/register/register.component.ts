@@ -5,6 +5,7 @@ import { PanelService } from '../../panel.service';
 import { FarsiNumberPipe } from "../../@shared/pipe/farsiNumber/farsi-number.pipe";
 import { NgPersianDatepickerModule } from 'ng-persian-datepicker';
 import { Router } from '@angular/router';
+import { ToastService } from '../../@shared/service/toast/toast.service';
 
 @Component({
   selector: 'app-register',
@@ -16,6 +17,7 @@ import { Router } from '@angular/router';
 export class RegisterComponent {
   formBuilder=inject(FormBuilder)
   panelService=inject(PanelService)
+  toastService=inject(ToastService)
   router=inject(Router)
 constructor(){
 

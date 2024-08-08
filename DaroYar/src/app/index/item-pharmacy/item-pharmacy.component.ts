@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { PanelService } from '../../panel.service';
 import { CommonModule } from '@angular/common';
+import { ToastService } from '../../@shared/service/toast/toast.service';
 
 @Component({
   selector: 'app-item-pharmacy',
@@ -11,6 +12,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './item-pharmacy.component.scss'
 })
 export class ItemPharmacyComponent {
+  toastService=inject(ToastService)
   activatedRoute=inject(ActivatedRoute)
   panelService=inject(PanelService)
   pharmacy:any

@@ -99,6 +99,12 @@
  
             </a>
           </li>
+          <li *ngIf="token.role=='doctor'" [class.active]="selectedItem === 10" (click)="selectItem(10)" class="nav-item">
+            <a class="nav-link collapsed" routerLink="prescription" role="button">
+              <span> <i class="bi bi-prescription2"></i>بیماران</span>
+ 
+            </a>
+          </li>
         </ul>
        
       </div>

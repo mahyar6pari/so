@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { PanelService } from '../../panel.service';
 import { RouterModule } from '@angular/router';
+import { ToastService } from '../../@shared/service/toast/toast.service';
 
 
 @Component({
@@ -12,6 +13,7 @@ import { RouterModule } from '@angular/router';
   styleUrl: './drugs.component.scss'
 })
 export class DrugsComponent {
+  toastService=inject(ToastService)
   panelService=inject(PanelService)
   status:boolean=false
     constructor(){
@@ -40,7 +42,9 @@ export class DrugsComponent {
             else{
               this.status=false
             }
-          })
+          }),
+
+          
         })
     }
     getDrugbyname(event?: any) {
@@ -66,7 +70,7 @@ export class DrugsComponent {
     
   listdrug(){
 
-    this.panelService.listDrug().subscribe((data: any) => {
+ /*   this.panelService.listDrug().subscribe((data: any) => {
       console.log(data);
       
       this.drugList = data;
@@ -76,6 +80,6 @@ export class DrugsComponent {
       else{
         this.status=false
       }
-    })
+    })*/
   }
 }

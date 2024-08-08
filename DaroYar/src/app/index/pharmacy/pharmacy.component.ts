@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { PanelService } from '../../panel.service';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { ToastService } from '../../@shared/service/toast/toast.service';
 
 @Component({
   selector: 'app-pharmacy',
@@ -12,6 +13,7 @@ import { RouterModule } from '@angular/router';
 })
 export class PharmacyComponent {
   panelService=inject(PanelService)
+  toastService=inject(ToastService)
   status:boolean=false
     constructor(){
     this.listPharmacy()

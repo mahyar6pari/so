@@ -5,6 +5,7 @@ import { FormArray, FormBuilder, FormsModule, ReactiveFormsModule, Validators } 
 import { NgPersianDatepickerModule } from 'ng-persian-datepicker';
 import { PanelService } from '../../../panel.service';
 import { Router } from '@angular/router';
+import { ToastService } from '../../../@shared/service/toast/toast.service';
 
 @Component({
   selector: 'app-patient',
@@ -15,6 +16,7 @@ import { Router } from '@angular/router';
 })
 export class PatientComponent {
   formBuilder=inject(FormBuilder)
+  toastService=inject(ToastService)
   registerForm:any
   submitted:boolean=false
   surance:any={}
@@ -34,6 +36,7 @@ export class PatientComponent {
         this.surance=data
       },
       error:(err) => {
+        this.toastService.error(err.error.message)
       }
     })
   }
@@ -57,6 +60,7 @@ export class PatientComponent {
         this.router.navigateByUrl('loginPage')
       },
       error:(err) => {
+        this.toastService.error(err.error.message)
       }
     })
     console.log(this.registerForm);

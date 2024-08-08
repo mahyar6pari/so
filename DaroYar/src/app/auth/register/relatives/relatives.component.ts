@@ -5,6 +5,7 @@ import { NgPersianDatepickerModule } from 'ng-persian-datepicker';
 import { FarsiNumberPipe } from '../../../@shared/pipe/farsiNumber/farsi-number.pipe';
 import { PanelService } from '../../../panel.service';
 import { Router } from '@angular/router';
+import { ToastService } from '../../../@shared/service/toast/toast.service';
 
 @Component({
   selector: 'app-relatives',
@@ -16,6 +17,7 @@ import { Router } from '@angular/router';
 export class RelativesComponent {
   formBuilder=inject(FormBuilder)
   panelService=inject(PanelService)
+  toastService=inject(ToastService)
   submitted:boolean=false
   router=inject(Router)
 constructor(){
@@ -31,6 +33,7 @@ submitfa(){
       this.router.navigateByUrl('loginPage')
     },
     error:(err) => {
+      this.toastService.error(err.error.message)
     }
   })
   console.log(this.registerForm2);

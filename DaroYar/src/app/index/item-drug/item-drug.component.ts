@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { PanelService } from '../../panel.service';
+import { ToastService } from '../../@shared/service/toast/toast.service';
 
 @Component({
   selector: 'app-item-drug',
@@ -12,6 +13,7 @@ import { PanelService } from '../../panel.service';
 })
 export class ItemDrugComponent {
   activatedRoute=inject(ActivatedRoute)
+  toastService=inject(ToastService)
   panelService=inject(PanelService)
   //{id:2,name:'بسته 100 عددی سرسوزن قلم انسولین 6mm گیج 31',company:'سلامت',image_url:'https://st.drnext.ir/prod.drnext.cbc//storage/market/products/500/92ee880b-a696-4147-aeb0-4cab606cab09.png',}
   drug:any={}
@@ -33,7 +35,7 @@ export class ItemDrugComponent {
         this.drug=data
       },
       error:(err) => {
-
+        this.toastService.error(err.error.message)
       }
     },)
   }

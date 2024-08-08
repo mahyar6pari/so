@@ -26,8 +26,8 @@ import { GenericHttpService } from "./auth/generic-http.service";
 
 
     //////index
-    listDrug() {
-      return this.http.get(`http://localhost:1111/api/medicinename`)
+    listDrug(id:any) {
+      return this.http.get(`http://localhost:1111/api/medicinename/`+id)
   }
   getDrugById(id:any){
     return this.http.get(`http://localhost:1111/api/medicine/`+id)

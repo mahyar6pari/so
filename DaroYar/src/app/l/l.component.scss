@@ -1,14 +1,8 @@
 $input-height: 1.75rem;
 
-.table-list-container {
-  max-width:800px; margin:20px auto;
-  background-color:#ffffff; 
-  border:1px solid #d2d2d2;  
-  position: relative;
-  z-index: 0;
-}
 
-@media (max-width: 640px ) {
+
+@media (max-width: 800px ) {
   .table-list-container { border-width: 1px 0; } 
 }
 
@@ -127,3 +121,34 @@ button.sort.desc .caret { display:inline-block; }
   line-height:inherit;
 } 
 
+body,
+.intro {
+  height: 100%;
+}
+
+table td,
+table th {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+thead th {
+  color: #fff;
+}
+
+.card {
+  border-radius: .5rem;
+}
+
+.table-scroll {
+  border-radius: .5rem;
+}
+
+.table-scroll table thead th {
+  font-size: 1.25rem;
+}
+thead {
+  top: 0;
+  position: sticky;
+}

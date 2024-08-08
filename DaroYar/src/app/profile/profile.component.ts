@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { ToastService } from '../@shared/service/toast/toast.service';
 
 @Component({
   selector: 'app-profile',
@@ -9,5 +10,5 @@ import { Component } from '@angular/core';
   styleUrl: './profile.component.scss'
 })
 export class ProfileComponent {
-
+  toastService=inject(ToastService)
 }

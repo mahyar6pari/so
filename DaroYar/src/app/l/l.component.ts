@@ -4,6 +4,7 @@ import { PanelService } from '../panel.service';
 import { RouterModule } from '@angular/router';
 import { FarsiNumberPipe } from "../@shared/pipe/farsiNumber/farsi-number.pipe";
 import { NgbModule } from '@deliverysolutions/ng-bootstrap';
+import { ToastService } from '../@shared/service/toast/toast.service';
 
 @Component({
   selector: 'app-l',
@@ -14,9 +15,10 @@ import { NgbModule } from '@deliverysolutions/ng-bootstrap';
 })
 export class LComponent {
   panelService=inject(PanelService)
+  toastService=inject(ToastService)
   status:boolean=false
   pageForIndex = 0
-  page = 1;
+  page:number = 1;
   countItemPerPage: any = 3;
   totalCount=10
   constructor(){
@@ -53,15 +55,12 @@ export class LComponent {
     }
 
 
-    listdrug(event?:any){
+    listdrug(event?:number){
       this.page = 1
       if (event) {
         this.page = event
       }
-      var data: any = {
-        page: this.page,
-      }
-      this.panelService.listDrug().subscribe((data: any) => {
+      this.panelService.listDrug(this.page).subscribe((data: any) => {
         console.log(data);
         
         this.drugList = data;

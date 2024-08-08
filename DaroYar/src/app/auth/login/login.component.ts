@@ -46,6 +46,7 @@ constructor( private cdr: ChangeDetectorRef){
           console.log(data);
           this.authService.setTokenLocalStorage(data.token as string)
           location.reload()
+          this.toastService.success(data.message)
           this.cdr.detectChanges()
         }
           
@@ -53,9 +54,9 @@ constructor( private cdr: ChangeDetectorRef){
        
       },
       error:(err) => {
-        console.log("sssss",err.error.error);
-        this.cdr.detectChanges()
-        this.toastService.error(err.error.error)
+        console.log("erro",err.message	);
+        this.toastService.error(err.error.message)
+        this.cdr.detectChanges();
       }
     })
   }

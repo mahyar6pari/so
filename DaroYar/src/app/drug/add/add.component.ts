@@ -4,6 +4,7 @@ import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FarsiNumberPipe } from "../../@shared/pipe/farsiNumber/farsi-number.pipe";
 import { NgPersianDatepickerModule } from 'ng-persian-datepicker';
 import { PanelService } from '../../panel.service';
+import { ToastService } from '../../@shared/service/toast/toast.service';
 
 @Component({
   selector: 'app-add',
@@ -17,6 +18,7 @@ export class AddComponent {
   submitted:boolean=true
   status:any=true
   isLoading:any=true
+  toastService=inject(ToastService)
   formBuilder=inject(FormBuilder)
   panelService=inject(PanelService)
   constructor(){
