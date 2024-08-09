@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { ToastService } from '../@shared/service/toast/toast.service';
+import { PanelService } from '../panel.service';
+import { TokenService } from '../auth/token.service';
 
 @Component({
   selector: 'app-profile',
@@ -11,4 +13,17 @@ import { ToastService } from '../@shared/service/toast/toast.service';
 })
 export class ProfileComponent {
   toastService=inject(ToastService)
+  panelService=inject(PanelService)
+  tokenService=inject(TokenService)
+  public token:any
+  constructor(){
+    this.token=this.tokenService.token()
+    this.getUser()
+    console.log(this.token);
+    
+  }
+
+  getUser(){
+   
+}
 }

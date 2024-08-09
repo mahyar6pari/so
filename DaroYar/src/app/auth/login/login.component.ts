@@ -26,10 +26,6 @@ export class LoginComponent {
 constructor( private cdr: ChangeDetectorRef){
   this.createForm()
 
-
-
-  
-  
 }
   loginForm:any
   id:any=''
@@ -45,11 +41,13 @@ constructor( private cdr: ChangeDetectorRef){
         if (data.token) {
           console.log(data);
           this.authService.setTokenLocalStorage(data.token as string)
-          location.reload()
           this.toastService.success(data.message)
           this.cdr.detectChanges()
+          this.router.navigateByUrl('').then(() => {
+            location.reload();
+          });
         }
-          
+
   
        
       },

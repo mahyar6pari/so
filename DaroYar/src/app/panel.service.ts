@@ -23,6 +23,9 @@ import { GenericHttpService } from "./auth/generic-http.service";
     registerrelatives(data:any) {
      return this.http.post(`http://localhost:1111/api/auth/registerrelatives`,data)
   }
+ /* getMe(){
+    return this.genericHttpService.get(`http://localhost:1111/api/auth/getme`)
+  }*/
 
 
     //////index

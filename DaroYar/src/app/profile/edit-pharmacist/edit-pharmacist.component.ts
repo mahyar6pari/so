@@ -1,18 +1,18 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { PanelService } from '../../../panel.service';
+import { FormsModule, ReactiveFormsModule, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ToastService } from '../../../@shared/service/toast/toast.service';
+import { ToastService } from '../../@shared/service/toast/toast.service';
+import { PanelService } from '../../panel.service';
 
 @Component({
-  selector: 'app-pharmacist',
+  selector: 'app-edit-pharmacist',
   standalone: true,
   imports: [CommonModule,FormsModule,ReactiveFormsModule],
-  templateUrl: './pharmacist.component.html',
-  styleUrl: './pharmacist.component.scss'
+  templateUrl: './edit-pharmacist.component.html',
+  styleUrl: './edit-pharmacist.component.scss'
 })
-export class PharmacistComponent {
+export class EditPharmacistComponent {
   formBulder=inject(FormBuilder)
   panelService=inject(PanelService)
   toastService=inject(ToastService)
@@ -24,13 +24,12 @@ export class PharmacistComponent {
   }
 
   add(){
-    this.submitted=true
     this.panelService.registercompany(this.companyForm.value).subscribe({
       next: (data: any) => {
         this.router.navigateByUrl('loginPage')
       },
       error:(err) => {
-        this.toastService.error(err.error.error)
+        this.toastService.error(err.error.message)
       }
     })
     console.log(this.companyForm);
@@ -38,13 +37,13 @@ export class PharmacistComponent {
 
   createForm(){
     this.companyForm=this.formBulder.group({
-      license_code:['', Validators.required],
-      firstname:['', Validators.required],
-      lastname:['', Validators.required],
-      mobile:['', Validators.required],
-      codemeli:['', Validators.required],
-      password:['', Validators.required],
-      role:['company', Validators.required]
+      license_code:[''],
+      firstname:[''],
+      lastname:[''],
+      mobile:[''],
+      codemeli:[''],
+      password:[''],
+      role:['company']
       
     })
   }

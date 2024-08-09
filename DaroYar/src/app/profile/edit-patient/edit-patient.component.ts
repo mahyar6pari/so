@@ -1,20 +1,20 @@
-import { Component, inject } from '@angular/core';
-import { FarsiNumberPipe } from "../../../@shared/pipe/farsiNumber/farsi-number.pipe";
 import { CommonModule } from '@angular/common';
-import { FormArray, FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { NgPersianDatepickerModule } from 'ng-persian-datepicker';
-import { PanelService } from '../../../panel.service';
+import { Component, inject } from '@angular/core';
+import { FormsModule, ReactiveFormsModule, FormBuilder, Validators, FormArray } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ToastService } from '../../../@shared/service/toast/toast.service';
+import { NgPersianDatepickerModule } from 'ng-persian-datepicker';
+import { FarsiNumberPipe } from '../../@shared/pipe/farsiNumber/farsi-number.pipe';
+import { ToastService } from '../../@shared/service/toast/toast.service';
+import { PanelService } from '../../panel.service';
 
 @Component({
-  selector: 'app-patient',
+  selector: 'app-edit-patient',
   standalone: true,
   imports: [FarsiNumberPipe,CommonModule,FormsModule, ReactiveFormsModule, NgPersianDatepickerModule],
-  templateUrl: './patient.component.html',
-  styleUrl: './patient.component.scss'
+  templateUrl: './edit-patient.component.html',
+  styleUrl: './edit-patient.component.scss'
 })
-export class PatientComponent {
+export class EditPatientComponent {
   formBuilder=inject(FormBuilder)
   toastService=inject(ToastService)
   registerForm:any
@@ -36,7 +36,7 @@ export class PatientComponent {
         this.surance=data
       },
       error:(err) => {
-        this.toastService.error(err.error.error)
+        this.toastService.error(err.error.message)
       }
     })
   }
@@ -53,7 +53,6 @@ export class PatientComponent {
   }
 
   add(){
-    this.submitted=true
     console.log(this.registerForm.value);
     
     this.panelService.registerpatient(this.registerForm.value).subscribe({
@@ -61,7 +60,7 @@ export class PatientComponent {
         this.router.navigateByUrl('loginPage')
       },
       error:(err) => {
-        this.toastService.error(err.error.error)
+        this.toastService.error(err.error.message)
       }
     })
     console.log(this.registerForm);
@@ -82,7 +81,7 @@ export class PatientComponent {
       role:['patient', Validators.required],
       ensurance:['', Validators.required],
       type2: this.formBuilder.array([]),
-      mobile:['', Validators.required]
+      mobile:['']
     })
   }
 }

@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { NgPersianDatepickerModule } from 'ng-persian-datepicker';
 import { FarsiNumberPipe } from "../../../@shared/pipe/farsiNumber/farsi-number.pipe";
 import { PanelService } from '../../../panel.service';
@@ -26,12 +26,13 @@ export class DoctorComponent {
   }
 
   add(){
+    this.submitted=true
     this.panelService.registerdoctor(this.doctorForm.value).subscribe({
       next: (data: any) => {
         this.router.navigateByUrl('loginPage')
       },
       error:(err) => {
-        this.toastService.error(err.error.message)
+        this.toastService.error(err.error.error)
       }
     })
     console.log(this.doctorForm);
@@ -39,18 +40,18 @@ export class DoctorComponent {
   }
   createForm(){
     this.doctorForm=this.formBuilder.group({
-      city:[''],
-      code:[''],
-      expertise:[''],
-      address:[''],
-      password:[''],
-      lastname:[''],
-      firstname:[''],
-      hospital:[''],
-      gender:[''],
-      birthday:[''],
-      codemeli:[''],
-      role:['doctor']
+      city:['', Validators.required],
+      code:['', Validators.required],
+      expertise:['', Validators.required],
+      address:['', Validators.required],
+      password:['', Validators.required],
+      lastname:['', Validators.required],
+      firstname:['', Validators.required],
+      hospital:['', Validators.required],
+      gender:['', Validators.required],
+      birthday:['', Validators.required],
+      codemeli:['', Validators.required],
+      role:['doctor', Validators.required]
     })
   }
 }

@@ -29,7 +29,7 @@ export class ItemDoctorComponent {
         this.doctor=data
       },
       error:(err) => {
-        this.toastService.error(err.error.message)
+
       }
     })
   }

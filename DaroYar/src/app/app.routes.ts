@@ -20,6 +20,10 @@ import { DoctorComponent } from './auth/register/doctor/doctor.component';
 import { ProfileComponent } from './profile/profile.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LComponent } from './l/l.component';
+import { EditRelativesComponent } from './profile/edit-relatives/edit-relatives.component';
+import { EditPharmacistComponent } from './profile/edit-pharmacist/edit-pharmacist.component';
+import { EditPatientComponent } from './profile/edit-patient/edit-patient.component';
+import { EditDoctorComponent } from './profile/edit-doctor/edit-doctor.component';
 
 export const routes: Routes = [
    
@@ -100,7 +104,27 @@ export const routes: Routes = [
             path:'profile'
             ,
             component:ProfileComponent
-           }
+           },
+           {
+            path:'profile/edit/relatives'
+            ,
+            component:EditRelativesComponent
+           },
+           {
+            path:'profile/edit/pharmacist'
+            ,
+            component:EditPharmacistComponent
+           },
+           {
+            path:'profile/edit/patient'
+            ,
+            component:EditPatientComponent
+           },
+           {
+            path:'profile/edit/doctor'
+            ,
+            component:EditDoctorComponent
+           },
         ]
     },
 

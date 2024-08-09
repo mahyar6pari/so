@@ -1,32 +1,41 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import { FormArray, FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { NgPersianDatepickerModule } from 'ng-persian-datepicker';
-import { FarsiNumberPipe } from '../../../@shared/pipe/farsiNumber/farsi-number.pipe';
-import { PanelService } from '../../../panel.service';
+import { FormsModule, ReactiveFormsModule, FormBuilder, FormArray, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ToastService } from '../../../@shared/service/toast/toast.service';
+import { NgPersianDatepickerModule } from 'ng-persian-datepicker';
+import { FarsiNumberPipe } from '../../@shared/pipe/farsiNumber/farsi-number.pipe';
+import { ToastService } from '../../@shared/service/toast/toast.service';
+import { PanelService } from '../../panel.service';
+import { TokenService } from '../../auth/token.service';
 
 @Component({
-  selector: 'app-relatives',
+  selector: 'app-edit-relatives',
   standalone: true,
   imports: [CommonModule,FormsModule, ReactiveFormsModule, FarsiNumberPipe, NgPersianDatepickerModule],
-  templateUrl: './relatives.component.html',
-  styleUrl: './relatives.component.scss'
+  templateUrl: './edit-relatives.component.html',
+  styleUrl: './edit-relatives.component.scss'
 })
-export class RelativesComponent {
+export class EditRelativesComponent {
   formBuilder=inject(FormBuilder)
   panelService=inject(PanelService)
   toastService=inject(ToastService)
   submitted:boolean=false
   router=inject(Router)
+  tokenService=inject(TokenService)
+  public token:any
+
 constructor(){
+  this.token=this.tokenService.token()
+  console.log("token",this.token);
   this.createForm2()
   this.addId()
+  this.registerForm2.get('codemeli')?.setValue(this.token.codemeli)
+  this.registerForm2.get('lastname')?.setValue(this.token.lastname)
+  this.registerForm2.get('firstname')?.setValue(this.token.firstname)
+
 }
 
 submitfa(){
-  this.submitted=true
   console.log(this.registerForm2.value);
   
   this.panelService.registerrelatives(this.registerForm2.value).subscribe({
@@ -34,7 +43,7 @@ submitfa(){
       this.router.navigateByUrl('loginPage')
     },
     error:(err) => {
-      this.toastService.error(err.error.error)
+      this.toastService.error(err.error.message)
     }
   })
   console.log(this.registerForm2);
@@ -59,10 +68,10 @@ registerForm2:any
       lastname:['', Validators.required],
       mobile:['', Validators.required],
       role:['relatives', Validators.required],
-      user_id:['', Validators.required],
+      user_id:[''],
       type: this.formBuilder.array([]),
-      password:['', Validators.required],
-      codemeli:['', Validators.required]
+      password:[''],
+      codemeli:['']
 
     })
   }

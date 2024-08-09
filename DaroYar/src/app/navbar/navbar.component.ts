@@ -20,6 +20,7 @@ export class NavbarComponent {
   user:any
   public token:any
   constructor(private renderer: Renderer2){
+    
     this.token=this.tokenService.token()
     console.log(this.token);
     

@@ -35,7 +35,7 @@ export class ItemDrugComponent {
         this.drug=data
       },
       error:(err) => {
-        this.toastService.error(err.error.message)
+
       }
     },)
   }
