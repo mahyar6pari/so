@@ -18,12 +18,11 @@ export class ProfileComponent {
   public token:any
   constructor(){
     this.token=this.tokenService.token()
-    this.getUser()
-    console.log(this.token);
-    
-  }
+    this.panelService.getMe().subscribe({
+      next: (data: any) => {
+        console.log("data",data);
+        }
 
-  getUser(){
-   
+      })
 }
 }

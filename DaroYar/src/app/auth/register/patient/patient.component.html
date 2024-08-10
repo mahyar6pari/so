@@ -148,8 +148,7 @@
                                         <label class="form-label">     نوع بیمه   <span class="text-danger">*</span></label>
                                         <select    class="form-select form-select-lg form-select-solid"  formControlName="ensurance">
                                           <option value=''>  انتخاب کنید </option>
-                                          <option  value={{surance.SALAMAT}} >سلامت</option>
-                                          <option value={{surance.TAMINEJTEMAI}}> تامین اجتماعی </option>
+                                          <option *ngFor="let item of rolesKey; let i=index" value="{{item}}" >{{rolesValue[i]}}</option>
                                       </select>
                                       </div>
   

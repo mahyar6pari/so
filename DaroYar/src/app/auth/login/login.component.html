@@ -30,10 +30,8 @@
                       <label class="form-label"> لطفا حالت را انتخاب کنید   <span class="text-danger">*</span> </label>
                       <select  formControlName="role"  class="form-select form-select-lg form-select-solid" >
                         <option  value="" >انتخاب کنید</option>
-                        <option  value="doctor" >پزشک</option>
-                        <option value="patient"> بیمار</option>
-                        <option  value="relatives" >اعضای خانواده بیمار</option>
-                        <option value="company">شرکت دارویی </option>
+                        <option *ngFor="let item of rolesKey; let i=index" value="{{item}}" >{{rolesValue[i]}}</option>
+
                     </select>
 
                 </div>

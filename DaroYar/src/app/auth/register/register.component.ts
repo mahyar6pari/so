@@ -20,10 +20,21 @@ export class RegisterComponent {
   toastService=inject(ToastService)
   router=inject(Router)
 constructor(){
-
+this.role()
 }
  id:any=''
+ rolesKey:any
+ rolesValue:any
 
+ role(){
+  this.panelService.getRole().subscribe({
+    next: (data: any) => {
+      this.rolesKey=Object.keys(data)
+      this.rolesValue=Object.values(data);
+      console.log( this.rolesValue, this.rolesKey);  
+    }
+        });
+}
   checkValue2(event:any) {
     this.id=event.target.value
   }

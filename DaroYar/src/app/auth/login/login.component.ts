@@ -22,13 +22,15 @@ export class LoginComponent {
   authService=inject(AuthService)
   router=inject(Router)
   toastService=inject(ToastService)
- 
-constructor( private cdr: ChangeDetectorRef){
-  this.createForm()
-
-}
   loginForm:any
   id:any=''
+  rolesKey:any
+  rolesValue:any
+constructor( private cdr: ChangeDetectorRef){
+  this.createForm()
+  this.role()
+}
+
 
   checkValue2(event:any) {
     this.id=event.target.value
@@ -57,6 +59,16 @@ constructor( private cdr: ChangeDetectorRef){
         this.cdr.detectChanges();
       }
     })
+  }
+
+  role(){
+    this.panelService.getRole().subscribe({
+      next: (data: any) => {
+        this.rolesKey=Object.keys(data)
+        this.rolesValue=Object.values(data);
+        console.log( this.rolesValue, this.rolesKey);  
+      }
+          });
   }
 
   createForm(){

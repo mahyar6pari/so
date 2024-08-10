@@ -23,9 +23,9 @@ import { GenericHttpService } from "./auth/generic-http.service";
     registerrelatives(data:any) {
      return this.http.post(`http://localhost:1111/api/auth/registerrelatives`,data)
   }
- /* getMe(){
+  getMe(){
     return this.genericHttpService.get(`http://localhost:1111/api/auth/getme`)
-  }*/
+  }
 
 
     //////index
@@ -74,5 +74,11 @@ getPharmacyById(id:any){
   /////bime////
   getensurance(){
     return this.http.get(`http://localhost:1111/api/enums/ensurance`)
+  }
+
+
+  /////role////
+  getRole(){
+    return this.http.get(`http://localhost:1111/api/enums/roles`)
   }
   }

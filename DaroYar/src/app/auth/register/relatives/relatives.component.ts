@@ -58,7 +58,7 @@ registerForm2:any
       firstname:['', Validators.required],
       lastname:['', Validators.required],
       mobile:['', Validators.required],
-      role:['relatives', Validators.required],
+      role:['RELATIVES', Validators.required],
       user_id:['', Validators.required],
       type: this.formBuilder.array([]),
       password:['', Validators.required],

@@ -51,7 +51,7 @@ export class DoctorComponent {
       gender:['', Validators.required],
       birthday:['', Validators.required],
       codemeli:['', Validators.required],
-      role:['doctor', Validators.required]
+      role:['DOCTOR', Validators.required]
     })
   }
 }

@@ -44,7 +44,7 @@ export class PharmacistComponent {
       mobile:['', Validators.required],
       codemeli:['', Validators.required],
       password:['', Validators.required],
-      role:['company', Validators.required]
+      role:['PHARMACIST', Validators.required]
       
     })
   }

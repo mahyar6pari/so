@@ -19,7 +19,8 @@ export class PatientComponent {
   toastService=inject(ToastService)
   registerForm:any
   submitted:boolean=false
-  surance:any={}
+  rolesKey:any
+  rolesValue:any
   router=inject(Router)
   panelService=inject(PanelService)
   constructor(){
@@ -31,9 +32,9 @@ export class PatientComponent {
   getEnsurance(){
     this.panelService.getensurance().subscribe({
       next: (data: any) => {
-        console.log(data);
-        
-        this.surance=data
+        this.rolesKey=Object.keys(data)
+        this.rolesValue=Object.values(data);
+        console.log( this.rolesValue, this.rolesKey); 
       },
       error:(err) => {
         this.toastService.error(err.error.message)
@@ -79,7 +80,7 @@ export class PatientComponent {
       birthday:['', Validators.required],
       password:['', Validators.required],
       address:['', Validators.required],
-      role:['patient', Validators.required],
+      role:['PATIENT', Validators.required],
       ensurance:['', Validators.required],
       type2: this.formBuilder.array([]),
       mobile:['', Validators.required]
