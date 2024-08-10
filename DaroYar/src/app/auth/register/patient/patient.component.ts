@@ -36,7 +36,7 @@ export class PatientComponent {
         this.surance=data
       },
       error:(err) => {
-        this.toastService.error(err.error.error)
+        this.toastService.error(err.error.message)
       }
     })
   }
@@ -61,7 +61,7 @@ export class PatientComponent {
         this.router.navigateByUrl('loginPage')
       },
       error:(err) => {
-        this.toastService.error(err.error.error)
+        this.toastService.error(err.error.message)
       }
     })
     console.log(this.registerForm);

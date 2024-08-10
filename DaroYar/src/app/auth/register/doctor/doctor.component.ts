@@ -32,7 +32,7 @@ export class DoctorComponent {
         this.router.navigateByUrl('loginPage')
       },
       error:(err) => {
-        this.toastService.error(err.error.error)
+        this.toastService.error(err.error.message)
       }
     })
     console.log(this.doctorForm);
