@@ -1,1 +1,55 @@
-<p>list works!</p>
+<section class="intro">
+    <div class="mask d-flex align-items-center h-100">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-body p-0">
+                <div class="table-responsive table-scroll" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px">
+                  <table class="table table-striped mb-0">
+                    <thead style="background-color: #002d72;">
+                      <tr>
+                        <th scope="col">اسم دارو</th>
+                        <th scope="col">طعم دارو</th>
+                        <th scope="col">کد دارو</th>
+                        <th scope="col">مقدار دارو</th>
+                        <th scope="col">شکل دارو</th>
+                        <th scope="col">روش مصرف</th>
+                        <th scope="col">ترکیبات دارو</th>
+                      </tr>
+                    </thead>
+                    <tbody>             
+                      <tr class="tbody-tr"   *ngFor="let item of drugList">
+                        <td> {{item.drug_name}}</td>
+                        <td>{{item.salt}}</td>
+                        <td> {{item.ATCC_code}}</td>
+                        <td>{{item.strengh}}</td>
+                        <td> {{item.dosage_form}}</td>
+                        <td>{{item.route_of_use}}</td>
+                        <td> {{item.ingredient}}</td>
+                      </tr>
+                    </tbody>
+                    
+                  </table>
+                  
+                </div>
+                <div class="row d-flex justify-content-center">
+                  <div class="col-12 d-flex justify-content-center">
+                    <ngb-pagination (pageChange)="listdrug($event)" [collectionSize]="totalCount"
+                      [(page)]="page" [pageSize]="countItemPerPage" [maxSize]="100" [rotate]="true"
+                      [boundaryLinks]="true"></ngb-pagination>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+
+</section>
+  
+  
+
+  

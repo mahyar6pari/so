@@ -47,6 +47,7 @@ export class DoctorComponent {
       password:['', Validators.required],
       lastname:['', Validators.required],
       firstname:['', Validators.required],
+      mobile:['', Validators.required],
       hospital:['', Validators.required],
       gender:['', Validators.required],
       birthday:['', Validators.required],

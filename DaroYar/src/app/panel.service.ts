@@ -81,4 +81,8 @@ getPharmacyById(id:any){
   getRole(){
     return this.http.get(`http://localhost:1111/api/enums/roles`)
   }
+
+  getMedicineById(id:any){
+    return this.genericHttpService.get(`http://localhost:1111/api/doctor/`+id)
   }
+}

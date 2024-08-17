@@ -172,6 +172,17 @@
                                           </div>
                                         </div>
                                       </div>
+                                      <div class="col-lg-6 col-12">
+                                        <div class="form-group">
+                                          <label class="form-label">  شماره موبایل  <span class="text-danger">*</span> </label>
+                                          <input type="text" formControlName="mobile" class="form-control form-control-lg form-control-solid ">
+                                          <div class="hint">
+                                            <div *ngIf="submitted &&  doctorForm.get('mobile')?.errors?.['required']">
+                                              <span>پر کردن این فیلد اجباری است</span>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
                                     </div>
 
 
