@@ -57,7 +57,7 @@ export class EditPatientComponent {
     
     this.panelService.registerpatient(this.registerForm.value).subscribe({
       next: (data: any) => {
-        this.router.navigateByUrl('loginPage')
+        this.router.navigateByUrl('profile')
       },
       error:(err) => {
         this.toastService.error(err.error.message)

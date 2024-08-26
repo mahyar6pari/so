@@ -28,7 +28,7 @@ export class EditDoctorComponent {
   add(){
     this.panelService.registerdoctor(this.doctorForm.value).subscribe({
       next: (data: any) => {
-        this.router.navigateByUrl('loginPage')
+        this.router.navigateByUrl('profile')
       },
       error:(err) => {
         this.toastService.error(err.error.message)

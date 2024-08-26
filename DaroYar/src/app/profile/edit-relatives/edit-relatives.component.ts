@@ -40,7 +40,7 @@ submitfa(){
   
   this.panelService.registerrelatives(this.registerForm2.value).subscribe({
     next: (data: any) => {
-      this.router.navigateByUrl('loginPage')
+      this.router.navigateByUrl('profile')
     },
     error:(err) => {
       this.toastService.error(err.error.message)

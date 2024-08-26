@@ -1,41 +1,36 @@
-<!--
-<div class="container  h-100">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col col-xl-8 card-hight">
-        <div class="card" style="border-radius: 1rem;">
-          <div class="row g-0">
-           
-            <div class="col-md-6 col-lg-8 d-flex align-items-center">
-              <div class="card-body  p-lg-6  d-flex flex-row">
-
-          
-                <div class="profile-summary-backdrop">
-                    <div class="profile-summary-pic ">
-                      <img  src="http://upload.wikimedia.org/wikipedia/commons/e/e1/Anne_Hathaway_Face.jpg" alt="">
-                    </div>
-                    
-                  </div>
-
-               
-  
+<section class=" w-100 px-4 py-5 " style=" border-radius: .5rem .5rem 0 0;  ">
+  <div class="row d-flex justify-content-center" style="height: 300px;">
+    <div class="col col-md-9 col-lg-7 col-xl-8">
+      <div class="color card" style="border-radius: 15px; height: 100%;">
+        <div class="card-body p-4">
+          <div class="d-flex">
+            <div class="flex-shrink-0 ">
+              <img src={{user.image_url}}
+                alt="عکس یافت نشد  " class="img-fluid" style="width: 230px; border-radius: 10px;">
+            </div>
+            <div class="flex-grow-1 ms-3" style="margin-right: 5px;">
+              <h5 class="mb-1">{{user.firstname }}{{user.lastname}} </h5>
+              <p class="mb-2 pb-1"> {{user.role}} </p>
+              <div class="d-flex justify-content-start rounded-3 p-2 mb-2 color">
+                <div>
+                  <p class="small text-muted mb-1">شماره موبایل</p>
+                  <p class="mb-0">{{user.mobile}}</p>
+                </div>
+                <div class="px-3">
+                  <p class="small text-muted mb-1">تاریخ تولد</p>
+                  <p class="mb-0">{{user.birthday}}</p>
+                </div>
 
               </div>
-              <div class="profile-titles ">
-                <h2>پروفایل</h2>
-                <span> نام و نام خانوادگی : مهیار شش پری </span>
-                <span>شماره موبایل : 09301977016</span>
-                <span>تاریخ تولد : 1400/02/02</span>
+ 
             </div>
-            </div>
-            <div class="col-md-6 col-lg-3 d-none d-md-block">
-              <div 
-                alt="login form" class="img-fluid  image-login" style="border-radius: 1rem 0 0 1rem;" >
-                <i class="bi bi-pencil-square"></i>
-              </div>
-            </div>
+            <div *ngIf="user.role=='relatives'"><a [routerLink]="['/profile/edit/relatives']" routerLinkActive="router-link-active" ><i class="bi bi-pencil-square"></i></a></div>
+            <div *ngIf="user.role=='pharmacist'"><a [routerLink]="['/profile/edit/pharmacist']" routerLinkActive="router-link-active" ><i class="bi bi-pencil-square"></i></a></div>
+            <div *ngIf="user.role=='patient'"><a [routerLink]="['/profile/edit/patient']" routerLinkActive="router-link-active" ><i class="bi bi-pencil-square"></i></a></div>
+            <div *ngIf="user.role=='doctor'"><a [routerLink]="['/profile/edit/doctor']" routerLinkActive="router-link-active" ><i class="bi bi-pencil-square"></i></a></div>
           </div>
         </div>
       </div>
     </div>
   </div>
--->
+</section>

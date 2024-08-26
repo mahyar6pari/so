@@ -79,7 +79,8 @@
             </a>
           </div>
           </li>
-          <li *ngIf="token.role=='doctor' || token.role=='admin' || token.role=='relatives' || token.role=='patient' || token.role=='company' " [class.active]="selectedItem === 9" (click)="selectItem(9)" class="nav-item">
+      <!--    <li *ngIf="token.role=='doctor' || token.role=='admin' || token.role=='relatives' || token.role=='patient' || token.role=='company' " [class.active]="selectedItem === 9" (click)="selectItem(9)" class="nav-item">-->
+        <li  [class.active]="selectedItem === 9" (click)="selectItem(9)" class="nav-item">
             <div class="wq">
             <a class="nav-link collapsed" routerLink="profile" role="button">
               <span> <i class="fa fa-medkit"></i> پروفایل</span>

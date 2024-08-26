@@ -26,7 +26,7 @@ export class EditPharmacistComponent {
   add(){
     this.panelService.registercompany(this.companyForm.value).subscribe({
       next: (data: any) => {
-        this.router.navigateByUrl('loginPage')
+        this.router.navigateByUrl('profile')
       },
       error:(err) => {
         this.toastService.error(err.error.message)
